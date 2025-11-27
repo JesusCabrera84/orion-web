@@ -1,0 +1,1173 @@
+﻿2025-11-27T02:11:17.2771746Z Current runner version: '2.329.0'
+2025-11-27T02:11:17.2797051Z ##[group]Runner Image Provisioner
+2025-11-27T02:11:17.2797940Z Hosted Compute Agent
+2025-11-27T02:11:17.2798475Z Version: 20251016.436
+2025-11-27T02:11:17.2799091Z Commit: 8ab8ac8bfd662a3739dab9fe09456aba92132568
+2025-11-27T02:11:17.2799800Z Build Date: 2025-10-15T20:44:12Z
+2025-11-27T02:11:17.2800427Z ##[endgroup]
+2025-11-27T02:11:17.2800950Z ##[group]Operating System
+2025-11-27T02:11:17.2801552Z Ubuntu
+2025-11-27T02:11:17.2802021Z 24.04.3
+2025-11-27T02:11:17.2802501Z LTS
+2025-11-27T02:11:17.2802924Z ##[endgroup]
+2025-11-27T02:11:17.2803502Z ##[group]Runner Image
+2025-11-27T02:11:17.2804087Z Image: ubuntu-24.04
+2025-11-27T02:11:17.2804555Z Version: 20251112.124.1
+2025-11-27T02:11:17.2806011Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251112.124/images/ubuntu/Ubuntu2404-Readme.md
+2025-11-27T02:11:17.2807599Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251112.124
+2025-11-27T02:11:17.2808661Z ##[endgroup]
+2025-11-27T02:11:17.2809773Z ##[group]GITHUB_TOKEN Permissions
+2025-11-27T02:11:17.2811659Z Contents: read
+2025-11-27T02:11:17.2812242Z Metadata: read
+2025-11-27T02:11:17.2812719Z Packages: read
+2025-11-27T02:11:17.2813310Z ##[endgroup]
+2025-11-27T02:11:17.2815610Z Secret source: Actions
+2025-11-27T02:11:17.2816391Z Prepare workflow directory
+2025-11-27T02:11:17.3242356Z Prepare all required actions
+2025-11-27T02:11:17.3297773Z Getting action download info
+2025-11-27T02:11:17.7340668Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2025-11-27T02:11:18.4317829Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2025-11-27T02:11:18.5217801Z Download action repository 'docker/setup-buildx-action@v3' (SHA:e468171a9de216ec08956ac3ada2f0791b6bd435)
+2025-11-27T02:11:19.0013896Z Download action repository 'docker/build-push-action@v5' (SHA:ca052bb54ab0790a636c9b5f226502c73d547a25)
+2025-11-27T02:11:19.5512362Z Complete job name: build-and-test
+2025-11-27T02:11:19.6338052Z ##[group]Run actions/checkout@v4
+2025-11-27T02:11:19.6339506Z with:
+2025-11-27T02:11:19.6340329Z   repository: JesusCabrera84/orion-web
+2025-11-27T02:11:19.6341687Z   token: ***
+2025-11-27T02:11:19.6342453Z   ssh-strict: true
+2025-11-27T02:11:19.6343245Z   ssh-user: git
+2025-11-27T02:11:19.6344039Z   persist-credentials: true
+2025-11-27T02:11:19.6344944Z   clean: true
+2025-11-27T02:11:19.6345880Z   sparse-checkout-cone-mode: true
+2025-11-27T02:11:19.6346867Z   fetch-depth: 1
+2025-11-27T02:11:19.6347654Z   fetch-tags: false
+2025-11-27T02:11:19.6348448Z   show-progress: true
+2025-11-27T02:11:19.6349256Z   lfs: false
+2025-11-27T02:11:19.6349986Z   submodules: false
+2025-11-27T02:11:19.6350784Z   set-safe-directory: true
+2025-11-27T02:11:19.6351920Z ##[endgroup]
+2025-11-27T02:11:19.7479077Z Syncing repository: JesusCabrera84/orion-web
+2025-11-27T02:11:19.7482111Z ##[group]Getting Git version info
+2025-11-27T02:11:19.7483676Z Working directory is '/home/runner/work/orion-web/orion-web'
+2025-11-27T02:11:19.7485821Z [command]/usr/bin/git version
+2025-11-27T02:11:19.7544227Z git version 2.51.2
+2025-11-27T02:11:19.7572426Z ##[endgroup]
+2025-11-27T02:11:19.7589489Z Temporarily overriding HOME='/home/runner/work/_temp/e350620b-8330-4246-ad15-326962b490ab' before making global git config changes
+2025-11-27T02:11:19.7594604Z Adding repository directory to the temporary git global config as a safe directory
+2025-11-27T02:11:19.7605227Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/orion-web/orion-web
+2025-11-27T02:11:19.7644341Z Deleting the contents of '/home/runner/work/orion-web/orion-web'
+2025-11-27T02:11:19.7648422Z ##[group]Initializing the repository
+2025-11-27T02:11:19.7652257Z [command]/usr/bin/git init /home/runner/work/orion-web/orion-web
+2025-11-27T02:11:19.7784560Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-11-27T02:11:19.7787571Z hint: is subject to change. To configure the initial branch name to use in all
+2025-11-27T02:11:19.7790765Z hint: of your new repositories, which will suppress this warning, call:
+2025-11-27T02:11:19.7793135Z hint:
+2025-11-27T02:11:19.7794740Z hint: 	git config --global init.defaultBranch <name>
+2025-11-27T02:11:19.7797036Z hint:
+2025-11-27T02:11:19.7798826Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-11-27T02:11:19.7801959Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-11-27T02:11:19.7804470Z hint:
+2025-11-27T02:11:19.7805938Z hint: 	git branch -m <name>
+2025-11-27T02:11:19.7807354Z hint:
+2025-11-27T02:11:19.7809336Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-11-27T02:11:19.7811378Z Initialized empty Git repository in /home/runner/work/orion-web/orion-web/.git/
+2025-11-27T02:11:19.7814744Z [command]/usr/bin/git remote add origin https://github.com/JesusCabrera84/orion-web
+2025-11-27T02:11:19.7839990Z ##[endgroup]
+2025-11-27T02:11:19.7842492Z ##[group]Disabling automatic garbage collection
+2025-11-27T02:11:19.7844707Z [command]/usr/bin/git config --local gc.auto 0
+2025-11-27T02:11:19.7874540Z ##[endgroup]
+2025-11-27T02:11:19.7877024Z ##[group]Setting up auth
+2025-11-27T02:11:19.7882336Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-11-27T02:11:19.7914829Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-11-27T02:11:19.8267368Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-11-27T02:11:19.8298123Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-11-27T02:11:19.8523061Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-11-27T02:11:19.8555162Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-11-27T02:11:19.8790611Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-11-27T02:11:19.8825570Z ##[endgroup]
+2025-11-27T02:11:19.8827216Z ##[group]Fetching the repository
+2025-11-27T02:11:19.8837333Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +5dc4bebd8ce17a2b63591fcaf6ccf8e4dc03ac69:refs/remotes/origin/master
+2025-11-27T02:11:22.2510698Z From https://github.com/JesusCabrera84/orion-web
+2025-11-27T02:11:22.2511882Z  * [new ref]         5dc4bebd8ce17a2b63591fcaf6ccf8e4dc03ac69 -> origin/master
+2025-11-27T02:11:22.2543936Z ##[endgroup]
+2025-11-27T02:11:22.2544617Z ##[group]Determining the checkout info
+2025-11-27T02:11:22.2546574Z ##[endgroup]
+2025-11-27T02:11:22.2551719Z [command]/usr/bin/git sparse-checkout disable
+2025-11-27T02:11:22.2592223Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-11-27T02:11:22.2616926Z ##[group]Checking out the ref
+2025-11-27T02:11:22.2620974Z [command]/usr/bin/git checkout --progress --force -B master refs/remotes/origin/master
+2025-11-27T02:11:22.4564470Z Reset branch 'master'
+2025-11-27T02:11:22.4565608Z branch 'master' set up to track 'origin/master'.
+2025-11-27T02:11:22.4575600Z ##[endgroup]
+2025-11-27T02:11:22.4621076Z [command]/usr/bin/git log -1 --format=%H
+2025-11-27T02:11:22.4646747Z 5dc4bebd8ce17a2b63591fcaf6ccf8e4dc03ac69
+2025-11-27T02:11:22.4873269Z ##[group]Run actions/setup-node@v4
+2025-11-27T02:11:22.4873582Z with:
+2025-11-27T02:11:22.4873784Z   node-version: 20
+2025-11-27T02:11:22.4873983Z   cache: npm
+2025-11-27T02:11:22.4874166Z   always-auth: false
+2025-11-27T02:11:22.4874381Z   check-latest: false
+2025-11-27T02:11:22.4874729Z   token: ***
+2025-11-27T02:11:22.4874922Z ##[endgroup]
+2025-11-27T02:11:22.6634272Z Found in cache @ /opt/hostedtoolcache/node/20.19.5/x64
+2025-11-27T02:11:22.6640111Z ##[group]Environment details
+2025-11-27T02:11:23.0274163Z node: v20.19.5
+2025-11-27T02:11:23.0274920Z npm: 10.8.2
+2025-11-27T02:11:23.0275583Z yarn: 1.22.22
+2025-11-27T02:11:23.0276721Z ##[endgroup]
+2025-11-27T02:11:23.0300329Z [command]/opt/hostedtoolcache/node/20.19.5/x64/bin/npm config get cache
+2025-11-27T02:11:23.1507769Z /home/runner/.npm
+2025-11-27T02:11:23.2975508Z npm cache is not found
+2025-11-27T02:11:23.3190872Z ##[group]Run npm ci
+2025-11-27T02:11:23.3191155Z [36;1mnpm ci[0m
+2025-11-27T02:11:23.3239445Z shell: /usr/bin/bash -e {0}
+2025-11-27T02:11:23.3239715Z ##[endgroup]
+2025-11-27T02:11:26.4692759Z npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+2025-11-27T02:11:26.6053202Z npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+2025-11-27T02:11:30.7153916Z 
+2025-11-27T02:11:30.7155062Z added 508 packages, and audited 509 packages in 7s
+2025-11-27T02:11:30.7156145Z 
+2025-11-27T02:11:30.7157114Z 245 packages are looking for funding
+2025-11-27T02:11:30.7157879Z   run `npm fund` for details
+2025-11-27T02:11:30.7193859Z 
+2025-11-27T02:11:30.7194164Z 1 high severity vulnerability
+2025-11-27T02:11:30.7194455Z 
+2025-11-27T02:11:30.7194678Z To address all issues, run:
+2025-11-27T02:11:30.7195165Z   npm audit fix
+2025-11-27T02:11:30.7195514Z 
+2025-11-27T02:11:30.7195682Z Run `npm audit` for details.
+2025-11-27T02:11:30.7475574Z ##[group]Run npm run lint
+2025-11-27T02:11:30.7475857Z [36;1mnpm run lint[0m
+2025-11-27T02:11:30.7508353Z shell: /usr/bin/bash -e {0}
+2025-11-27T02:11:30.7508591Z ##[endgroup]
+2025-11-27T02:11:30.8590328Z 
+2025-11-27T02:11:30.8590800Z > lint
+2025-11-27T02:11:30.8591266Z > eslint "src/**/*.ts*"
+2025-11-27T02:11:30.8591530Z 
+2025-11-27T02:11:34.3309189Z 
+2025-11-27T02:11:34.3311000Z /home/runner/work/orion-web/orion-web/src/components/hero/EarthPlane.tsx
+2025-11-27T02:11:34.3348414Z ##[warning]  7:5  warning  useVisibleTask$() runs eagerly and blocks the main thread, preventing user interaction until the task is finished. Consider using useTask$(), useOn(), useOnDocument(), or useOnWindow() instead. If you have to use a useVisibleTask$(), you can disable the warning with a '// eslint-disable-next-line qwik/no-use-visible-task' comment  qwik/no-use-visible-task
+2025-11-27T02:11:34.3360017Z 
+2025-11-27T02:11:34.3360697Z /home/runner/work/orion-web/orion-web/src/components/hero/galactic-logo.tsx
+2025-11-27T02:11:34.3361857Z   18:17  warning  Local images can be optimized by importing using ESM, like this:
+2025-11-27T02:11:34.3362369Z 
+2025-11-27T02:11:34.3362658Z   import ImgLogo from '~/media/images/logo.png?jsx';
+2025-11-27T02:11:34.3363151Z   <ImgLogo />
+2025-11-27T02:11:34.3363338Z 
+2025-11-27T02:11:34.3363993Z See https://qwik.dev/docs/integrations/image-optimization/#responsive-images  qwik/jsx-img
+2025-11-27T02:11:34.3364645Z 
+2025-11-27T02:11:34.3365089Z /home/runner/work/orion-web/orion-web/src/components/hero/hero.tsx
+2025-11-27T02:11:34.3370022Z ##[warning]   8:5   warning  useVisibleTask$() runs eagerly and blocks the main thread, preventing user interaction until the task is finished. Consider using useTask$(), useOn(), useOnDocument(), or useOnWindow() instead. If you have to use a useVisibleTask$(), you can disable the warning with a '// eslint-disable-next-line qwik/no-use-visible-task' comment  qwik/no-use-visible-task
+2025-11-27T02:11:34.3373433Z   58:29  warning  Local images can be optimized by importing using ESM, like this:
+2025-11-27T02:11:34.3373977Z 
+2025-11-27T02:11:34.3374517Z   import ImgLogoOrionSilver from '~/media/images/logo-orion-silver.png?jsx';
+2025-11-27T02:11:34.3375204Z   <ImgLogoOrionSilver />
+2025-11-27T02:11:34.3375637Z 
+2025-11-27T02:11:34.3376733Z See https://qwik.dev/docs/integrations/image-optimization/#responsive-images                                                                                        qwik/jsx-img
+2025-11-27T02:11:34.3377916Z 
+2025-11-27T02:11:34.3378479Z /home/runner/work/orion-web/orion-web/src/components/hero/starfield-layer.tsx
+2025-11-27T02:11:34.3383166Z ##[warning]  16:5  warning  useVisibleTask$() runs eagerly and blocks the main thread, preventing user interaction until the task is finished. Consider using useTask$(), useOn(), useOnDocument(), or useOnWindow() instead. If you have to use a useVisibleTask$(), you can disable the warning with a '// eslint-disable-next-line qwik/no-use-visible-task' comment  qwik/no-use-visible-task
+2025-11-27T02:11:34.3386075Z 
+2025-11-27T02:11:34.3386562Z /home/runner/work/orion-web/orion-web/src/routes/login/index.tsx
+2025-11-27T02:11:34.3387604Z   60:30  warning  Local images can be optimized by importing using ESM, like this:
+2025-11-27T02:11:34.3388112Z 
+2025-11-27T02:11:34.3388406Z   import ImgLogo from '~/media/images/logo.png?jsx';
+2025-11-27T02:11:34.3388903Z   <ImgLogo />
+2025-11-27T02:11:34.3389090Z 
+2025-11-27T02:11:34.3389754Z See https://qwik.dev/docs/integrations/image-optimization/#responsive-images  qwik/jsx-img
+2025-11-27T02:11:34.3390386Z 
+2025-11-27T02:11:34.3390862Z /home/runner/work/orion-web/orion-web/src/routes/mapa/index.tsx
+2025-11-27T02:11:34.3391906Z   59:26  warning  Local images can be optimized by importing using ESM, like this:
+2025-11-27T02:11:34.3392409Z 
+2025-11-27T02:11:34.3392694Z   import ImgLogo from '~/media/images/logo.png?jsx';
+2025-11-27T02:11:34.3393204Z   <ImgLogo />
+2025-11-27T02:11:34.3393393Z 
+2025-11-27T02:11:34.3394338Z See https://qwik.dev/docs/integrations/image-optimization/#responsive-images  qwik/jsx-img
+2025-11-27T02:11:34.3395003Z 
+2025-11-27T02:11:34.3395639Z /home/runner/work/orion-web/orion-web/src/routes/verify/index.tsx
+2025-11-27T02:11:34.3396701Z   38:26  warning  Local images can be optimized by importing using ESM, like this:
+2025-11-27T02:11:34.3397204Z 
+2025-11-27T02:11:34.3397501Z   import ImgLogo from '~/media/images/logo.png?jsx';
+2025-11-27T02:11:34.3398006Z   <ImgLogo />
+2025-11-27T02:11:34.3398200Z 
+2025-11-27T02:11:34.3398853Z See https://qwik.dev/docs/integrations/image-optimization/#responsive-images  qwik/jsx-img
+2025-11-27T02:11:34.3399480Z 
+2025-11-27T02:11:34.3400009Z ✖ 8 problems (0 errors, 8 warnings)
+2025-11-27T02:11:34.3400307Z 
+2025-11-27T02:11:34.3995524Z ##[group]Run npm run build
+2025-11-27T02:11:34.3995806Z [36;1mnpm run build[0m
+2025-11-27T02:11:34.4027506Z shell: /usr/bin/bash -e {0}
+2025-11-27T02:11:34.4027751Z ##[endgroup]
+2025-11-27T02:11:34.5081124Z 
+2025-11-27T02:11:34.5081491Z > build
+2025-11-27T02:11:34.5081847Z > qwik build
+2025-11-27T02:11:34.5082039Z 
+2025-11-27T02:11:34.5742584Z 
+2025-11-27T02:11:34.5743075Z       ............
+2025-11-27T02:11:34.5743596Z     .::: :--------:.
+2025-11-27T02:11:34.5743908Z    .::::  .:-------:.
+2025-11-27T02:11:34.5744198Z   .:::::.   .:-------.
+2025-11-27T02:11:34.5744481Z   ::::::.     .:------.
+2025-11-27T02:11:34.5744785Z  ::::::.        :-----:
+2025-11-27T02:11:34.5745044Z  ::::::.       .:-----.
+2025-11-27T02:11:34.5745528Z   :::::::.     .-----.
+2025-11-27T02:11:34.5745802Z    ::::::::..   ---:.
+2025-11-27T02:11:34.5746052Z     .:::::::::. :-:.
+2025-11-27T02:11:34.5746298Z      ..::::::::::::
+2025-11-27T02:11:34.5746538Z              ...::::
+2025-11-27T02:11:34.5746825Z      
+2025-11-27T02:11:34.5746952Z 
+2025-11-27T02:11:34.5754339Z 
+2025-11-27T02:11:34.5754560Z npm run build.types
+2025-11-27T02:11:34.5755177Z npm run build.client
+2025-11-27T02:11:34.5755809Z npm run lint
+2025-11-27T02:11:34.5756023Z 
+2025-11-27T02:11:34.7063573Z 
+2025-11-27T02:11:34.7064427Z > build.types
+2025-11-27T02:11:34.7064907Z > tsc --incremental --noEmit
+2025-11-27T02:11:34.7065190Z 
+2025-11-27T02:11:34.7316406Z 
+2025-11-27T02:11:34.7317081Z > build.client
+2025-11-27T02:11:34.7317808Z > vite build
+2025-11-27T02:11:34.7318229Z 
+2025-11-27T02:11:35.5863503Z using deprecated parameters for the initialization function; pass a single object instead
+2025-11-27T02:11:36.0451234Z [36mvite v7.1.11 [32mbuilding for production...[36m[39m
+2025-11-27T02:11:36.0996745Z transforming...
+2025-11-27T02:11:39.8436211Z [32m✓[39m 96 modules transformed.
+2025-11-27T02:11:40.0946492Z rendering chunks...
+2025-11-27T02:11:40.3303916Z computing gzip size...
+2025-11-27T02:11:40.3478153Z [2mdist/[22m[2massets/[22m[32mBxovHrV4-bundle-graph.json  [39m[1m[2m  2.06 kB[22m[1m[22m[2m │ gzip:   1.13 kB[22m
+2025-11-27T02:11:40.3479775Z [2mdist/[22m[32mq-manifest.json                    [39m[1m[2m 38.09 kB[22m[1m[22m[2m │ gzip:   5.38 kB[22m
+2025-11-27T02:11:40.3481255Z [2mdist/[22m[2massets/[22m[35mO30PGwjH-style.css          [39m[1m[2m 54.24 kB[22m[1m[22m[2m │ gzip:  13.80 kB[22m
+2025-11-27T02:11:40.3482754Z [2mdist/[22m[36mbuild/q-Di682T_q.js                [39m[1m[2m  0.05 kB[22m[1m[22m[2m │ gzip:   0.07 kB[22m
+2025-11-27T02:11:40.3484215Z [2mdist/[22m[36mbuild/q-CwqsMTj3.js                [39m[1m[2m  0.15 kB[22m[1m[22m[2m │ gzip:   0.13 kB[22m
+2025-11-27T02:11:40.3486747Z [2mdist/[22m[36mbuild/q-AvgOBi6Z.js                [39m[1m[2m  0.17 kB[22m[1m[22m[2m │ gzip:   0.15 kB[22m
+2025-11-27T02:11:40.3488152Z [2mdist/[22m[36mbuild/q-63iatg1Y.js                [39m[1m[2m  0.17 kB[22m[1m[22m[2m │ gzip:   0.15 kB[22m
+2025-11-27T02:11:40.3489556Z [2mdist/[22m[36mbuild/q-DQmX-z2r.js                [39m[1m[2m  0.17 kB[22m[1m[22m[2m │ gzip:   0.15 kB[22m
+2025-11-27T02:11:40.3490962Z [2mdist/[22m[36mbuild/q-CX95C3bh.js                [39m[1m[2m  0.17 kB[22m[1m[22m[2m │ gzip:   0.15 kB[22m
+2025-11-27T02:11:40.3492457Z [2mdist/[22m[36mbuild/q-CH1E56Vo.js                [39m[1m[2m  0.17 kB[22m[1m[22m[2m │ gzip:   0.15 kB[22m
+2025-11-27T02:11:40.3493905Z [2mdist/[22m[36mbuild/q-juoQKq-d.js                [39m[1m[2m  0.17 kB[22m[1m[22m[2m │ gzip:   0.16 kB[22m
+2025-11-27T02:11:40.3495545Z [2mdist/[22m[36mbuild/q-BkU6mpzw.js                [39m[1m[2m  0.18 kB[22m[1m[22m[2m │ gzip:   0.17 kB[22m
+2025-11-27T02:11:40.3497015Z [2mdist/[22m[36mbuild/q-DEUkFAGv.js                [39m[1m[2m  0.18 kB[22m[1m[22m[2m │ gzip:   0.17 kB[22m
+2025-11-27T02:11:40.3498421Z [2mdist/[22m[36mbuild/q-BDXbdXzA.js                [39m[1m[2m  0.18 kB[22m[1m[22m[2m │ gzip:   0.17 kB[22m
+2025-11-27T02:11:40.3500361Z [2mdist/[22m[36mbuild/q-DWfAMVVD.js                [39m[1m[2m  0.26 kB[22m[1m[22m[2m │ gzip:   0.20 kB[22m
+2025-11-27T02:11:40.3501871Z [2mdist/[22m[36mbuild/q-CDsdO_Wx.js                [39m[1m[2m  0.34 kB[22m[1m[22m[2m │ gzip:   0.28 kB[22m
+2025-11-27T02:11:40.3503306Z [2mdist/[22m[36mbuild/q-DBX70Eub.js                [39m[1m[2m  0.35 kB[22m[1m[22m[2m │ gzip:   0.20 kB[22m
+2025-11-27T02:11:40.3504762Z [2mdist/[22m[36mbuild/q-vHuYy4n3.js                [39m[1m[2m  0.37 kB[22m[1m[22m[2m │ gzip:   0.23 kB[22m
+2025-11-27T02:11:40.3506389Z [2mdist/[22m[36mbuild/q-DgSO9lBc.js                [39m[1m[2m  0.44 kB[22m[1m[22m[2m │ gzip:   0.31 kB[22m
+2025-11-27T02:11:40.3507621Z [2mdist/[22m[36mbuild/q-BLnckQub.js                [39m[1m[2m  0.52 kB[22m[1m[22m[2m │ gzip:   0.34 kB[22m
+2025-11-27T02:11:40.3509063Z [2mdist/[22m[36mbuild/q-VJ99Qxt-.js                [39m[1m[2m  0.55 kB[22m[1m[22m[2m │ gzip:   0.39 kB[22m
+2025-11-27T02:11:40.3510490Z [2mdist/[22m[36mbuild/q-Dq2pRNDE.js                [39m[1m[2m  0.71 kB[22m[1m[22m[2m │ gzip:   0.37 kB[22m
+2025-11-27T02:11:40.3511879Z [2mdist/[22m[36mbuild/q-iGUzByY_.js                [39m[1m[2m  0.80 kB[22m[1m[22m[2m │ gzip:   0.53 kB[22m
+2025-11-27T02:11:40.3513309Z [2mdist/[22m[36mbuild/q-Dvt6IjoE.js                [39m[1m[2m  0.81 kB[22m[1m[22m[2m │ gzip:   0.48 kB[22m
+2025-11-27T02:11:40.3514748Z [2mdist/[22m[36mbuild/q-BC-RWsMj.js                [39m[1m[2m  0.83 kB[22m[1m[22m[2m │ gzip:   0.43 kB[22m
+2025-11-27T02:11:40.3516416Z [2mdist/[22m[36mbuild/q-CfQsPZwr.js                [39m[1m[2m  0.90 kB[22m[1m[22m[2m │ gzip:   0.53 kB[22m
+2025-11-27T02:11:40.3518712Z [2mdist/[22m[36mbuild/q-jbKpBGOy.js                [39m[1m[2m  0.96 kB[22m[1m[22m[2m │ gzip:   0.55 kB[22m
+2025-11-27T02:11:40.3520150Z [2mdist/[22m[36mbuild/q-C8oUWptr.js                [39m[1m[2m  0.96 kB[22m[1m[22m[2m │ gzip:   0.48 kB[22m
+2025-11-27T02:11:40.3521518Z [2mdist/[22m[36mbuild/q-jtZL59r-.js                [39m[1m[2m  1.31 kB[22m[1m[22m[2m │ gzip:   0.69 kB[22m
+2025-11-27T02:11:40.3522906Z [2mdist/[22m[36mbuild/q-DMp3UILm.js                [39m[1m[2m  1.41 kB[22m[1m[22m[2m │ gzip:   0.76 kB[22m
+2025-11-27T02:11:40.3524238Z [2mdist/[22m[36mbuild/q-fKxXNHi9.js                [39m[1m[2m  1.76 kB[22m[1m[22m[2m │ gzip:   0.98 kB[22m
+2025-11-27T02:11:40.3525787Z [2mdist/[22m[36mbuild/q-D6ZP92m3.js                [39m[1m[2m  1.84 kB[22m[1m[22m[2m │ gzip:   0.94 kB[22m
+2025-11-27T02:11:40.3527160Z [2mdist/[22m[36mbuild/q-Dq8LLgfs.js                [39m[1m[2m  1.96 kB[22m[1m[22m[2m │ gzip:   1.01 kB[22m
+2025-11-27T02:11:40.3528546Z [2mdist/[22m[36mbuild/q-BihhsMc7.js                [39m[1m[2m  2.24 kB[22m[1m[22m[2m │ gzip:   1.09 kB[22m
+2025-11-27T02:11:40.3529928Z [2mdist/[22m[36mbuild/q-brla9B9v.js                [39m[1m[2m  2.41 kB[22m[1m[22m[2m │ gzip:   1.11 kB[22m
+2025-11-27T02:11:40.3531409Z [2mdist/[22m[36mbuild/q-vqmNahmF.js                [39m[1m[2m  2.85 kB[22m[1m[22m[2m │ gzip:   1.31 kB[22m
+2025-11-27T02:11:40.3532880Z [2mdist/[22m[36mbuild/q-BaEVV674.js                [39m[1m[2m  2.98 kB[22m[1m[22m[2m │ gzip:   1.19 kB[22m
+2025-11-27T02:11:40.3534284Z [2mdist/[22m[36mbuild/q-naDMFAHy.js                [39m[1m[2m  3.10 kB[22m[1m[22m[2m │ gzip:   1.68 kB[22m
+2025-11-27T02:11:40.3535874Z [2mdist/[22m[36mbuild/q-Q4kJbLTg.js                [39m[1m[2m  3.45 kB[22m[1m[22m[2m │ gzip:   0.92 kB[22m
+2025-11-27T02:11:40.3537267Z [2mdist/[22m[36mbuild/q-Ce4Xo5xK.js                [39m[1m[2m  3.68 kB[22m[1m[22m[2m │ gzip:   1.11 kB[22m
+2025-11-27T02:11:40.3538657Z [2mdist/[22m[36mbuild/q-BKZ00VYc.js                [39m[1m[2m  3.73 kB[22m[1m[22m[2m │ gzip:   2.00 kB[22m
+2025-11-27T02:11:40.3540025Z [2mdist/[22m[36mbuild/q-J8dHOCFX.js                [39m[1m[2m  4.83 kB[22m[1m[22m[2m │ gzip:   1.96 kB[22m
+2025-11-27T02:11:40.3541659Z [2mdist/[22m[36mbuild/q-BdfZG3DH.js                [39m[1m[2m  5.42 kB[22m[1m[22m[2m │ gzip:   1.35 kB[22m
+2025-11-27T02:11:40.3543097Z [2mdist/[22m[36mbuild/q-9lOLm31X.js                [39m[1m[2m  6.38 kB[22m[1m[22m[2m │ gzip:   2.08 kB[22m
+2025-11-27T02:11:40.3544521Z [2mdist/[22m[36mbuild/q-BNpHxpQy.js                [39m[1m[2m  6.79 kB[22m[1m[22m[2m │ gzip:   2.78 kB[22m
+2025-11-27T02:11:40.3546210Z [2mdist/[22m[36mbuild/q-C9OCXvMp.js                [39m[1m[2m  6.93 kB[22m[1m[22m[2m │ gzip:   3.28 kB[22m
+2025-11-27T02:11:40.3547678Z [2mdist/[22m[36mbuild/q-DGke7184.js                [39m[1m[2m 49.74 kB[22m[1m[22m[2m │ gzip:  20.17 kB[22m
+2025-11-27T02:11:40.3549181Z [2mdist/[22m[36mbuild/q-C-T2X1Oh.js                [39m[1m[2m149.82 kB[22m[1m[22m[2m │ gzip:  43.49 kB[22m
+2025-11-27T02:11:40.3550037Z [2mdist/[22m[36mbuild/q-DkwAuJT7.js                [39m[1m[2m489.85 kB[22m[1m[22m[2m │ gzip: 126.04 kB[22m
+2025-11-27T02:11:40.3550567Z [32m✓ built in 4.27s[39m
+2025-11-27T02:11:40.3989257Z 
+2025-11-27T02:11:40.3989966Z ✓ Built client modules
+2025-11-27T02:11:40.5019809Z 
+2025-11-27T02:11:40.5020391Z > lint
+2025-11-27T02:11:40.5020733Z > eslint "src/**/*.ts*"
+2025-11-27T02:11:40.5020938Z 
+2025-11-27T02:11:43.9607399Z [0m[0m
+2025-11-27T02:11:43.9608423Z [0m[4m/home/runner/work/orion-web/orion-web/src/components/hero/EarthPlane.tsx[24m[0m
+2025-11-27T02:11:43.9611549Z [0m  [2m7:5[22m  [33mwarning[39m  useVisibleTask$() runs eagerly and blocks the main thread, preventing user interaction until the task is finished. Consider using useTask$(), useOn(), useOnDocument(), or useOnWindow() instead. If you have to use a useVisibleTask$(), you can disable the warning with a '// eslint-disable-next-line qwik/no-use-visible-task' comment  [2mqwik/no-use-visible-task[22m[0m
+2025-11-27T02:11:43.9613389Z [0m[0m
+2025-11-27T02:11:43.9613967Z [0m[4m/home/runner/work/orion-web/orion-web/src/components/hero/galactic-logo.tsx[24m[0m
+2025-11-27T02:11:43.9614799Z [0m  [2m18:17[22m  [33mwarning[39m  Local images can be optimized by importing using ESM, like this:[0m
+2025-11-27T02:11:43.9615450Z [0m[0m
+2025-11-27T02:11:43.9615901Z [0m  import ImgLogo from '~/media/images/logo.png?jsx';[0m
+2025-11-27T02:11:43.9616262Z [0m  <ImgLogo />[0m
+2025-11-27T02:11:43.9616483Z [0m[0m
+2025-11-27T02:11:43.9617121Z [0mSee https://qwik.dev/docs/integrations/image-optimization/#responsive-images  [2mqwik/jsx-img[22m[0m
+2025-11-27T02:11:43.9617636Z [0m[0m
+2025-11-27T02:11:43.9618122Z [0m[4m/home/runner/work/orion-web/orion-web/src/components/hero/hero.tsx[24m[0m
+2025-11-27T02:11:43.9620385Z [0m   [2m8:5[22m   [33mwarning[39m  useVisibleTask$() runs eagerly and blocks the main thread, preventing user interaction until the task is finished. Consider using useTask$(), useOn(), useOnDocument(), or useOnWindow() instead. If you have to use a useVisibleTask$(), you can disable the warning with a '// eslint-disable-next-line qwik/no-use-visible-task' comment  [2mqwik/no-use-visible-task[22m[0m
+2025-11-27T02:11:43.9622134Z [0m  [2m58:29[22m  [33mwarning[39m  Local images can be optimized by importing using ESM, like this:[0m
+2025-11-27T02:11:43.9622582Z [0m[0m
+2025-11-27T02:11:43.9623055Z [0m  import ImgLogoOrionSilver from '~/media/images/logo-orion-silver.png?jsx';[0m
+2025-11-27T02:11:43.9623526Z [0m  <ImgLogoOrionSilver />[0m
+2025-11-27T02:11:43.9623774Z [0m[0m
+2025-11-27T02:11:43.9624598Z [0mSee https://qwik.dev/docs/integrations/image-optimization/#responsive-images                                                                                        [2mqwik/jsx-img[22m[0m
+2025-11-27T02:11:43.9625155Z [0m[0m
+2025-11-27T02:11:43.9625916Z [0m[4m/home/runner/work/orion-web/orion-web/src/components/hero/starfield-layer.tsx[24m[0m
+2025-11-27T02:11:43.9628203Z [0m  [2m16:5[22m  [33mwarning[39m  useVisibleTask$() runs eagerly and blocks the main thread, preventing user interaction until the task is finished. Consider using useTask$(), useOn(), useOnDocument(), or useOnWindow() instead. If you have to use a useVisibleTask$(), you can disable the warning with a '// eslint-disable-next-line qwik/no-use-visible-task' comment  [2mqwik/no-use-visible-task[22m[0m
+2025-11-27T02:11:43.9629504Z [0m[0m
+2025-11-27T02:11:43.9629951Z [0m[4m/home/runner/work/orion-web/orion-web/src/routes/login/index.tsx[24m[0m
+2025-11-27T02:11:43.9630727Z [0m  [2m60:30[22m  [33mwarning[39m  Local images can be optimized by importing using ESM, like this:[0m
+2025-11-27T02:11:43.9631132Z [0m[0m
+2025-11-27T02:11:43.9631477Z [0m  import ImgLogo from '~/media/images/logo.png?jsx';[0m
+2025-11-27T02:11:43.9631812Z [0m  <ImgLogo />[0m
+2025-11-27T02:11:43.9632040Z [0m[0m
+2025-11-27T02:11:43.9632636Z [0mSee https://qwik.dev/docs/integrations/image-optimization/#responsive-images  [2mqwik/jsx-img[22m[0m
+2025-11-27T02:11:43.9633113Z [0m[0m
+2025-11-27T02:11:43.9633566Z [0m[4m/home/runner/work/orion-web/orion-web/src/routes/mapa/index.tsx[24m[0m
+2025-11-27T02:11:43.9634287Z [0m  [2m59:26[22m  [33mwarning[39m  Local images can be optimized by importing using ESM, like this:[0m
+2025-11-27T02:11:43.9634701Z [0m[0m
+2025-11-27T02:11:43.9635048Z [0m  import ImgLogo from '~/media/images/logo.png?jsx';[0m
+2025-11-27T02:11:43.9635540Z [0m  <ImgLogo />[0m
+2025-11-27T02:11:43.9635752Z [0m[0m
+2025-11-27T02:11:43.9636329Z [0mSee https://qwik.dev/docs/integrations/image-optimization/#responsive-images  [2mqwik/jsx-img[22m[0m
+2025-11-27T02:11:43.9636801Z [0m[0m
+2025-11-27T02:11:43.9637248Z [0m[4m/home/runner/work/orion-web/orion-web/src/routes/verify/index.tsx[24m[0m
+2025-11-27T02:11:43.9637957Z [0m  [2m38:26[22m  [33mwarning[39m  Local images can be optimized by importing using ESM, like this:[0m
+2025-11-27T02:11:43.9638521Z [0m[0m
+2025-11-27T02:11:43.9638876Z [0m  import ImgLogo from '~/media/images/logo.png?jsx';[0m
+2025-11-27T02:11:43.9639205Z [0m  <ImgLogo />[0m
+2025-11-27T02:11:43.9639408Z [0m[0m
+2025-11-27T02:11:43.9639999Z [0mSee https://qwik.dev/docs/integrations/image-optimization/#responsive-images  [2mqwik/jsx-img[22m[0m
+2025-11-27T02:11:43.9640469Z [0m[0m
+2025-11-27T02:11:43.9640865Z [0m[33m[1m✖ 8 problems (0 errors, 8 warnings)[22m[39m[0m
+2025-11-27T02:11:43.9641206Z [0m[33m[1m[22m[39m[0m
+2025-11-27T02:11:44.0300312Z ✓ Type checked
+2025-11-27T02:11:44.0300614Z ✓ Lint checked
+2025-11-27T02:11:44.0300987Z 
+2025-11-27T02:11:44.0301561Z  Missing an integration 
+2025-11-27T02:11:44.0301881Z 
+2025-11-27T02:11:44.0302380Z ・ Use npm run qwik add to add an integration
+2025-11-27T02:11:44.0303823Z ・ Use npm run preview to preview the build
+2025-11-27T02:11:44.0304147Z 
+2025-11-27T02:11:44.0464992Z ##[group]Run docker/setup-buildx-action@v3
+2025-11-27T02:11:44.0465576Z with:
+2025-11-27T02:11:44.0465774Z   driver: docker-container
+2025-11-27T02:11:44.0465995Z   install: false
+2025-11-27T02:11:44.0466169Z   use: true
+2025-11-27T02:11:44.0466362Z   keep-state: false
+2025-11-27T02:11:44.0466551Z   cache-binary: true
+2025-11-27T02:11:44.0466742Z   cleanup: true
+2025-11-27T02:11:44.0466915Z ##[endgroup]
+2025-11-27T02:11:44.3295961Z ##[group]Docker info
+2025-11-27T02:11:44.3317994Z [command]/usr/bin/docker version
+2025-11-27T02:11:44.4227923Z Client: Docker Engine - Community
+2025-11-27T02:11:44.4228404Z  Version:           28.0.4
+2025-11-27T02:11:44.4231103Z  API version:       1.48
+2025-11-27T02:11:44.4231497Z  Go version:        go1.23.7
+2025-11-27T02:11:44.4231890Z  Git commit:        b8034c0
+2025-11-27T02:11:44.4232322Z  Built:             Tue Mar 25 15:07:16 2025
+2025-11-27T02:11:44.4232743Z  OS/Arch:           linux/amd64
+2025-11-27T02:11:44.4233047Z  Context:           default
+2025-11-27T02:11:44.4233199Z 
+2025-11-27T02:11:44.4233340Z Server: Docker Engine - Community
+2025-11-27T02:11:44.4233573Z  Engine:
+2025-11-27T02:11:44.4233753Z   Version:          28.0.4
+2025-11-27T02:11:44.4234017Z   API version:      1.48 (minimum version 1.24)
+2025-11-27T02:11:44.4234285Z   Go version:       go1.23.7
+2025-11-27T02:11:44.4234509Z   Git commit:       6430e49
+2025-11-27T02:11:44.4234761Z   Built:            Tue Mar 25 15:07:16 2025
+2025-11-27T02:11:44.4235050Z   OS/Arch:          linux/amd64
+2025-11-27T02:11:44.4235493Z   Experimental:     false
+2025-11-27T02:11:44.4235728Z  containerd:
+2025-11-27T02:11:44.4235918Z   Version:          v2.1.5
+2025-11-27T02:11:44.4236220Z   GitCommit:        fcd43222d6b07379a4be9786bda52438f0dd16a1
+2025-11-27T02:11:44.4236509Z  runc:
+2025-11-27T02:11:44.4236686Z   Version:          1.3.3
+2025-11-27T02:11:44.4236923Z   GitCommit:        v1.3.3-0-gd842d771
+2025-11-27T02:11:44.4237178Z  docker-init:
+2025-11-27T02:11:44.4237367Z   Version:          0.19.0
+2025-11-27T02:11:44.4237595Z   GitCommit:        de40ad0
+2025-11-27T02:11:44.4281273Z [command]/usr/bin/docker info
+2025-11-27T02:11:47.9398436Z Client: Docker Engine - Community
+2025-11-27T02:11:47.9398947Z  Version:    28.0.4
+2025-11-27T02:11:47.9399321Z  Context:    default
+2025-11-27T02:11:47.9399707Z  Debug Mode: false
+2025-11-27T02:11:47.9400020Z  Plugins:
+2025-11-27T02:11:47.9400382Z   buildx: Docker Buildx (Docker Inc.)
+2025-11-27T02:11:47.9400783Z     Version:  v0.29.1
+2025-11-27T02:11:47.9401292Z     Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+2025-11-27T02:11:47.9401882Z   compose: Docker Compose (Docker Inc.)
+2025-11-27T02:11:47.9402313Z     Version:  v2.38.2
+2025-11-27T02:11:47.9402799Z     Path:     /usr/libexec/docker/cli-plugins/docker-compose
+2025-11-27T02:11:47.9403182Z 
+2025-11-27T02:11:47.9403306Z Server:
+2025-11-27T02:11:47.9403593Z  Containers: 0
+2025-11-27T02:11:47.9403905Z   Running: 0
+2025-11-27T02:11:47.9404186Z   Paused: 0
+2025-11-27T02:11:47.9404477Z   Stopped: 0
+2025-11-27T02:11:47.9404792Z  Images: 0
+2025-11-27T02:11:47.9405655Z  Server Version: 28.0.4
+2025-11-27T02:11:47.9406023Z  Storage Driver: overlay2
+2025-11-27T02:11:47.9406402Z   Backing Filesystem: extfs
+2025-11-27T02:11:47.9406785Z   Supports d_type: true
+2025-11-27T02:11:47.9407130Z   Using metacopy: false
+2025-11-27T02:11:47.9407493Z   Native Overlay Diff: false
+2025-11-27T02:11:47.9407855Z   userxattr: false
+2025-11-27T02:11:47.9408175Z  Logging Driver: json-file
+2025-11-27T02:11:47.9408520Z  Cgroup Driver: systemd
+2025-11-27T02:11:47.9408836Z  Cgroup Version: 2
+2025-11-27T02:11:47.9409129Z  Plugins:
+2025-11-27T02:11:47.9409399Z   Volume: local
+2025-11-27T02:11:47.9409801Z   Network: bridge host ipvlan macvlan null overlay
+2025-11-27T02:11:47.9410477Z   Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+2025-11-27T02:11:47.9411054Z  Swarm: inactive
+2025-11-27T02:11:47.9411416Z  Runtimes: io.containerd.runc.v2 runc
+2025-11-27T02:11:47.9411825Z  Default Runtime: runc
+2025-11-27T02:11:47.9412428Z  Init Binary: docker-init
+2025-11-27T02:11:47.9413003Z  containerd version: fcd43222d6b07379a4be9786bda52438f0dd16a1
+2025-11-27T02:11:47.9413588Z  runc version: v1.3.3-0-gd842d771
+2025-11-27T02:11:47.9413990Z  init version: de40ad0
+2025-11-27T02:11:47.9414321Z  Security Options:
+2025-11-27T02:11:47.9414629Z   apparmor
+2025-11-27T02:11:47.9414898Z   seccomp
+2025-11-27T02:11:47.9415183Z    Profile: builtin
+2025-11-27T02:11:47.9415674Z   cgroupns
+2025-11-27T02:11:47.9415992Z  Kernel Version: 6.11.0-1018-azure
+2025-11-27T02:11:47.9416467Z  Operating System: Ubuntu 24.04.3 LTS
+2025-11-27T02:11:47.9416813Z  OSType: linux
+2025-11-27T02:11:47.9417013Z  Architecture: x86_64
+2025-11-27T02:11:47.9417211Z  CPUs: 4
+2025-11-27T02:11:47.9417380Z  Total Memory: 15.62GiB
+2025-11-27T02:11:47.9417585Z  Name: runnervmg1sw1
+2025-11-27T02:11:47.9417821Z  ID: 25309008-d3b6-4795-9b53-5704e2dd5a06
+2025-11-27T02:11:47.9418110Z  Docker Root Dir: /var/lib/docker
+2025-11-27T02:11:47.9418350Z  Debug Mode: false
+2025-11-27T02:11:47.9418556Z  Username: githubactions
+2025-11-27T02:11:47.9418786Z  Experimental: false
+2025-11-27T02:11:47.9418990Z  Insecure Registries:
+2025-11-27T02:11:47.9419210Z   ::1/128
+2025-11-27T02:11:47.9419374Z   127.0.0.0/8
+2025-11-27T02:11:47.9419562Z  Live Restore Enabled: false
+2025-11-27T02:11:47.9419704Z 
+2025-11-27T02:11:47.9421765Z ##[endgroup]
+2025-11-27T02:11:48.0559682Z ##[group]Buildx version
+2025-11-27T02:11:48.0590543Z [command]/usr/bin/docker buildx version
+2025-11-27T02:11:48.1198029Z github.com/docker/buildx v0.29.1 a32761aeb3debd39be1eca514af3693af0db334b
+2025-11-27T02:11:48.1232256Z ##[endgroup]
+2025-11-27T02:11:48.1386394Z ##[group]Inspecting default docker context
+2025-11-27T02:11:48.1524804Z [
+2025-11-27T02:11:48.1525116Z   {
+2025-11-27T02:11:48.1525599Z     "Name": "default",
+2025-11-27T02:11:48.1525955Z     "Metadata": {},
+2025-11-27T02:11:48.1526282Z     "Endpoints": {
+2025-11-27T02:11:48.1526596Z       "docker": {
+2025-11-27T02:11:48.1527003Z         "Host": "unix:///var/run/docker.sock",
+2025-11-27T02:11:48.1527544Z         "SkipTLSVerify": false
+2025-11-27T02:11:48.1527902Z       }
+2025-11-27T02:11:48.1528165Z     },
+2025-11-27T02:11:48.1528419Z     "TLSMaterial": {},
+2025-11-27T02:11:48.1528626Z     "Storage": {
+2025-11-27T02:11:48.1528862Z       "MetadataPath": "<IN MEMORY>",
+2025-11-27T02:11:48.1529131Z       "TLSPath": "<IN MEMORY>"
+2025-11-27T02:11:48.1529476Z     }
+2025-11-27T02:11:48.1529682Z   }
+2025-11-27T02:11:48.1529832Z ]
+2025-11-27T02:11:48.1530323Z ##[endgroup]
+2025-11-27T02:11:48.1530673Z ##[group]Creating a new builder instance
+2025-11-27T02:11:48.3032956Z [command]/usr/bin/docker buildx create --name builder-9606d104-e453-4902-a295-51984468f739 --driver docker-container --buildkitd-flags --allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host --use
+2025-11-27T02:11:48.3949075Z builder-9606d104-e453-4902-a295-51984468f739
+2025-11-27T02:11:48.3985814Z ##[endgroup]
+2025-11-27T02:11:48.3986259Z ##[group]Booting builder
+2025-11-27T02:11:48.4023084Z [command]/usr/bin/docker buildx inspect --bootstrap --builder builder-9606d104-e453-4902-a295-51984468f739
+2025-11-27T02:11:48.4499776Z #1 [internal] booting buildkit
+2025-11-27T02:11:48.6005709Z #1 pulling image moby/buildkit:buildx-stable-1
+2025-11-27T02:11:52.1842278Z #1 pulling image moby/buildkit:buildx-stable-1 3.7s done
+2025-11-27T02:11:52.3344253Z #1 creating container buildx_buildkit_builder-9606d104-e453-4902-a295-51984468f7390
+2025-11-27T02:11:52.6133361Z #1 creating container buildx_buildkit_builder-9606d104-e453-4902-a295-51984468f7390 0.4s done
+2025-11-27T02:11:52.6152498Z #1 DONE 4.2s
+2025-11-27T02:11:52.6425196Z Name:          builder-9606d104-e453-4902-a295-51984468f739
+2025-11-27T02:11:52.6426065Z Driver:        docker-container
+2025-11-27T02:11:52.6426629Z Last Activity: 2025-11-27 02:11:48 +0000 UTC
+2025-11-27T02:11:52.6426938Z 
+2025-11-27T02:11:52.6427064Z Nodes:
+2025-11-27T02:11:52.6427589Z Name:                  builder-9606d104-e453-4902-a295-51984468f7390
+2025-11-27T02:11:52.6428702Z Endpoint:              unix:///var/run/docker.sock
+2025-11-27T02:11:52.6429276Z Status:                running
+2025-11-27T02:11:52.6430307Z BuildKit daemon flags: --allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host
+2025-11-27T02:11:52.6431249Z BuildKit version:      v0.26.2
+2025-11-27T02:11:52.6431931Z Platforms:             linux/amd64, linux/amd64/v2, linux/amd64/v3, linux/386
+2025-11-27T02:11:52.6432508Z Labels:
+2025-11-27T02:11:52.6432902Z  org.mobyproject.buildkit.worker.executor:         oci
+2025-11-27T02:11:52.6433465Z  org.mobyproject.buildkit.worker.hostname:         ec0ac186e7a9
+2025-11-27T02:11:52.6433909Z  org.mobyproject.buildkit.worker.network:          host
+2025-11-27T02:11:52.6434440Z  org.mobyproject.buildkit.worker.oci.process-mode: sandbox
+2025-11-27T02:11:52.6434877Z  org.mobyproject.buildkit.worker.selinux.enabled:  false
+2025-11-27T02:11:52.6435698Z  org.mobyproject.buildkit.worker.snapshotter:      overlayfs
+2025-11-27T02:11:52.6436062Z GC Policy rule#0:
+2025-11-27T02:11:52.6436321Z  All:            false
+2025-11-27T02:11:52.6436761Z  Filters:        type==source.local,type==exec.cachemount,type==source.git.checkout
+2025-11-27T02:11:52.6437213Z  Keep Duration:  48h0m0s
+2025-11-27T02:11:52.6437453Z  Max Used Space: 488.3MiB
+2025-11-27T02:11:52.6437679Z GC Policy rule#1:
+2025-11-27T02:11:52.6437873Z  All:            false
+2025-11-27T02:11:52.6438170Z  Keep Duration:  1440h0m0s
+2025-11-27T02:11:52.6438390Z  Reserved Space: 7.451GiB
+2025-11-27T02:11:52.6438596Z  Max Used Space: 54.02GiB
+2025-11-27T02:11:52.6438908Z  Min Free Space: 13.97GiB
+2025-11-27T02:11:52.6439133Z GC Policy rule#2:
+2025-11-27T02:11:52.6439315Z  All:            false
+2025-11-27T02:11:52.6439531Z  Reserved Space: 7.451GiB
+2025-11-27T02:11:52.6439825Z  Max Used Space: 54.02GiB
+2025-11-27T02:11:52.6440033Z  Min Free Space: 13.97GiB
+2025-11-27T02:11:52.6440247Z GC Policy rule#3:
+2025-11-27T02:11:52.6440521Z  All:            true
+2025-11-27T02:11:52.6440732Z  Reserved Space: 7.451GiB
+2025-11-27T02:11:52.6440937Z  Max Used Space: 54.02GiB
+2025-11-27T02:11:52.6441172Z  Min Free Space: 13.97GiB
+2025-11-27T02:11:52.6481841Z ##[endgroup]
+2025-11-27T02:11:52.7423791Z ##[group]Inspect builder
+2025-11-27T02:11:52.7426580Z {
+2025-11-27T02:11:52.7426885Z   "nodes": [
+2025-11-27T02:11:52.7427176Z     {
+2025-11-27T02:11:52.7427644Z       "name": "builder-9606d104-e453-4902-a295-51984468f7390",
+2025-11-27T02:11:52.7428108Z       "endpoint": "unix:///var/run/docker.sock",
+2025-11-27T02:11:52.7428398Z       "status": "running",
+2025-11-27T02:11:52.7428982Z       "buildkitd-flags": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host",
+2025-11-27T02:11:52.7429499Z       "buildkit": "v0.26.2",
+2025-11-27T02:11:52.7429973Z       "platforms": "linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/386",
+2025-11-27T02:11:52.7430404Z       "features": {
+2025-11-27T02:11:52.7430745Z         "Automatically load images to the Docker Engine image store": true,
+2025-11-27T02:11:52.7431234Z         "Cache export": true,
+2025-11-27T02:11:52.7431814Z         "Direct push": true,
+2025-11-27T02:11:52.7432068Z         "Docker exporter": true,
+2025-11-27T02:11:52.7432338Z         "Multi-platform build": true,
+2025-11-27T02:11:52.7432590Z         "OCI exporter": true
+2025-11-27T02:11:52.7432789Z       },
+2025-11-27T02:11:52.7433004Z       "labels": {
+2025-11-27T02:11:52.7433454Z         "org.mobyproject.buildkit.worker.executor": "oci",
+2025-11-27T02:11:52.7433902Z         "org.mobyproject.buildkit.worker.hostname": "ec0ac186e7a9",
+2025-11-27T02:11:52.7434308Z         "org.mobyproject.buildkit.worker.network": "host",
+2025-11-27T02:11:52.7434730Z         "org.mobyproject.buildkit.worker.oci.process-mode": "sandbox",
+2025-11-27T02:11:52.7435220Z         "org.mobyproject.buildkit.worker.selinux.enabled": "false",
+2025-11-27T02:11:52.7436213Z         "org.mobyproject.buildkit.worker.snapshotter": "overlayfs"
+2025-11-27T02:11:52.7436558Z       },
+2025-11-27T02:11:52.7436725Z       "gcPolicy": [
+2025-11-27T02:11:52.7437204Z         {
+2025-11-27T02:11:52.7455144Z           "all": false,
+2025-11-27T02:11:52.7455887Z           "filter": [
+2025-11-27T02:11:52.7456314Z             "type==source.local",
+2025-11-27T02:11:52.7456825Z             "type==exec.cachemount",
+2025-11-27T02:11:52.7457315Z             "type==source.git.checkout"
+2025-11-27T02:11:52.7457742Z           ],
+2025-11-27T02:11:52.7458091Z           "keepDuration": "48h0m0s",
+2025-11-27T02:11:52.7458541Z           "maxUsedSpace": "488.3MiB"
+2025-11-27T02:11:52.7458938Z         },
+2025-11-27T02:11:52.7459234Z         {
+2025-11-27T02:11:52.7459530Z           "all": false,
+2025-11-27T02:11:52.7459944Z           "keepDuration": "1440h0m0s",
+2025-11-27T02:11:52.7460424Z           "reservedSpace": "7.451GiB",
+2025-11-27T02:11:52.7460914Z           "maxUsedSpace": "54.02GiB",
+2025-11-27T02:11:52.7461390Z           "minFreeSpace": "13.97GiB"
+2025-11-27T02:11:52.7461811Z         },
+2025-11-27T02:11:52.7462112Z         {
+2025-11-27T02:11:52.7462426Z           "all": false,
+2025-11-27T02:11:52.7462853Z           "reservedSpace": "7.451GiB",
+2025-11-27T02:11:52.7463342Z           "maxUsedSpace": "54.02GiB",
+2025-11-27T02:11:52.7463805Z           "minFreeSpace": "13.97GiB"
+2025-11-27T02:11:52.7464210Z         },
+2025-11-27T02:11:52.7464485Z         {
+2025-11-27T02:11:52.7464775Z           "all": true,
+2025-11-27T02:11:52.7465180Z           "reservedSpace": "7.451GiB",
+2025-11-27T02:11:52.7466160Z           "maxUsedSpace": "54.02GiB",
+2025-11-27T02:11:52.7466641Z           "minFreeSpace": "13.97GiB"
+2025-11-27T02:11:52.7467058Z         }
+2025-11-27T02:11:52.7467353Z       ]
+2025-11-27T02:11:52.7467640Z     }
+2025-11-27T02:11:52.7467916Z   ],
+2025-11-27T02:11:52.7468351Z   "name": "builder-9606d104-e453-4902-a295-51984468f739",
+2025-11-27T02:11:52.7468912Z   "driver": "docker-container",
+2025-11-27T02:11:52.7469400Z   "lastActivity": "2025-11-27T02:11:48.000Z"
+2025-11-27T02:11:52.7469835Z }
+2025-11-27T02:11:52.7470387Z ##[endgroup]
+2025-11-27T02:11:52.7470937Z ##[group]BuildKit version
+2025-11-27T02:11:52.7471537Z builder-9606d104-e453-4902-a295-51984468f7390: v0.26.2
+2025-11-27T02:11:52.7472266Z ##[endgroup]
+2025-11-27T02:11:52.7576596Z ##[group]Run docker/build-push-action@v5
+2025-11-27T02:11:52.7576901Z with:
+2025-11-27T02:11:52.7577071Z   context: .
+2025-11-27T02:11:52.7577253Z   file: ./Dockerfile
+2025-11-27T02:11:52.7577440Z   push: false
+2025-11-27T02:11:52.7577623Z   tags: orion-web:latest
+2025-11-27T02:11:52.7577827Z   cache-from: type=gha
+2025-11-27T02:11:52.7578048Z   cache-to: type=gha,mode=max
+2025-11-27T02:11:52.7578263Z   load: false
+2025-11-27T02:11:52.7578436Z   no-cache: false
+2025-11-27T02:11:52.7578611Z   pull: false
+2025-11-27T02:11:52.7578946Z   github-token: ***
+2025-11-27T02:11:52.7579146Z ##[endgroup]
+2025-11-27T02:11:52.9821060Z ##[group]GitHub Actions runtime token ACs
+2025-11-27T02:11:52.9832587Z refs/heads/master: read/write
+2025-11-27T02:11:52.9833687Z ##[endgroup]
+2025-11-27T02:11:52.9834614Z ##[group]Docker info
+2025-11-27T02:11:52.9880906Z [command]/usr/bin/docker version
+2025-11-27T02:11:53.0092407Z Client: Docker Engine - Community
+2025-11-27T02:11:53.0097942Z  Version:           28.0.4
+2025-11-27T02:11:53.0098377Z  API version:       1.48
+2025-11-27T02:11:53.0098762Z  Go version:        go1.23.7
+2025-11-27T02:11:53.0099155Z  Git commit:        b8034c0
+2025-11-27T02:11:53.0099599Z  Built:             Tue Mar 25 15:07:16 2025
+2025-11-27T02:11:53.0100070Z  OS/Arch:           linux/amd64
+2025-11-27T02:11:53.0100448Z  Context:           default
+2025-11-27T02:11:53.0100678Z 
+2025-11-27T02:11:53.0100910Z Server: Docker Engine - Community
+2025-11-27T02:11:53.0101293Z  Engine:
+2025-11-27T02:11:53.0101472Z   Version:          28.0.4
+2025-11-27T02:11:53.0101754Z   API version:      1.48 (minimum version 1.24)
+2025-11-27T02:11:53.0102038Z   Go version:       go1.23.7
+2025-11-27T02:11:53.0102269Z   Git commit:       6430e49
+2025-11-27T02:11:53.0102529Z   Built:            Tue Mar 25 15:07:16 2025
+2025-11-27T02:11:53.0102806Z   OS/Arch:          linux/amd64
+2025-11-27T02:11:53.0103047Z   Experimental:     false
+2025-11-27T02:11:53.0103264Z  containerd:
+2025-11-27T02:11:53.0103450Z   Version:          v2.1.5
+2025-11-27T02:11:53.0103758Z   GitCommit:        fcd43222d6b07379a4be9786bda52438f0dd16a1
+2025-11-27T02:11:53.0104050Z  runc:
+2025-11-27T02:11:53.0104222Z   Version:          1.3.3
+2025-11-27T02:11:53.0104472Z   GitCommit:        v1.3.3-0-gd842d771
+2025-11-27T02:11:53.0104722Z  docker-init:
+2025-11-27T02:11:53.0104905Z   Version:          0.19.0
+2025-11-27T02:11:53.0105114Z   GitCommit:        de40ad0
+2025-11-27T02:11:53.0151121Z [command]/usr/bin/docker info
+2025-11-27T02:11:53.1023848Z Client: Docker Engine - Community
+2025-11-27T02:11:53.1024321Z  Version:    28.0.4
+2025-11-27T02:11:53.1024702Z  Context:    default
+2025-11-27T02:11:53.1025088Z  Debug Mode: false
+2025-11-27T02:11:53.1025584Z  Plugins:
+2025-11-27T02:11:53.1025962Z   buildx: Docker Buildx (Docker Inc.)
+2025-11-27T02:11:53.1026397Z     Version:  v0.29.1
+2025-11-27T02:11:53.1026938Z     Path:     /usr/libexec/docker/cli-plugins/docker-buildx
+2025-11-27T02:11:53.1027560Z   compose: Docker Compose (Docker Inc.)
+2025-11-27T02:11:53.1027986Z     Version:  v2.38.2
+2025-11-27T02:11:53.1028460Z     Path:     /usr/libexec/docker/cli-plugins/docker-compose
+2025-11-27T02:11:53.1028814Z 
+2025-11-27T02:11:53.1028934Z Server:
+2025-11-27T02:11:53.1029196Z  Containers: 1
+2025-11-27T02:11:53.1029491Z   Running: 1
+2025-11-27T02:11:53.1029768Z   Paused: 0
+2025-11-27T02:11:53.1030046Z   Stopped: 0
+2025-11-27T02:11:53.1030324Z  Images: 1
+2025-11-27T02:11:53.1030606Z  Server Version: 28.0.4
+2025-11-27T02:11:53.1030945Z  Storage Driver: overlay2
+2025-11-27T02:11:53.1031303Z   Backing Filesystem: extfs
+2025-11-27T02:11:53.1031664Z   Supports d_type: true
+2025-11-27T02:11:53.1032009Z   Using metacopy: false
+2025-11-27T02:11:53.1032340Z   Native Overlay Diff: false
+2025-11-27T02:11:53.1032694Z   userxattr: false
+2025-11-27T02:11:53.1033013Z  Logging Driver: json-file
+2025-11-27T02:11:53.1033361Z  Cgroup Driver: systemd
+2025-11-27T02:11:53.1033733Z  Cgroup Version: 2
+2025-11-27T02:11:53.1034037Z  Plugins:
+2025-11-27T02:11:53.1034312Z   Volume: local
+2025-11-27T02:11:53.1035089Z   Network: bridge host ipvlan macvlan null overlay
+2025-11-27T02:11:53.1035995Z   Log: awslogs fluentd gcplogs gelf journald json-file local splunk syslog
+2025-11-27T02:11:53.1036572Z  Swarm: inactive
+2025-11-27T02:11:53.1036954Z  Runtimes: io.containerd.runc.v2 runc
+2025-11-27T02:11:53.1037363Z  Default Runtime: runc
+2025-11-27T02:11:53.1037708Z  Init Binary: docker-init
+2025-11-27T02:11:53.1038235Z  containerd version: fcd43222d6b07379a4be9786bda52438f0dd16a1
+2025-11-27T02:11:53.1038787Z  runc version: v1.3.3-0-gd842d771
+2025-11-27T02:11:53.1039190Z  init version: de40ad0
+2025-11-27T02:11:53.1039510Z  Security Options:
+2025-11-27T02:11:53.1039819Z   apparmor
+2025-11-27T02:11:53.1040095Z   seccomp
+2025-11-27T02:11:53.1040376Z    Profile: builtin
+2025-11-27T02:11:53.1040697Z   cgroupns
+2025-11-27T02:11:53.1041048Z  Kernel Version: 6.11.0-1018-azure
+2025-11-27T02:11:53.1041504Z  Operating System: Ubuntu 24.04.3 LTS
+2025-11-27T02:11:53.1042108Z  OSType: linux
+2025-11-27T02:11:53.1042427Z  Architecture: x86_64
+2025-11-27T02:11:53.1042757Z  CPUs: 4
+2025-11-27T02:11:53.1043047Z  Total Memory: 15.62GiB
+2025-11-27T02:11:53.1043379Z  Name: runnervmg1sw1
+2025-11-27T02:11:53.1043762Z  ID: 25309008-d3b6-4795-9b53-5704e2dd5a06
+2025-11-27T02:11:53.1044251Z  Docker Root Dir: /var/lib/docker
+2025-11-27T02:11:53.1044598Z  Debug Mode: false
+2025-11-27T02:11:53.1044807Z  Username: githubactions
+2025-11-27T02:11:53.1045091Z  Experimental: false
+2025-11-27T02:11:53.1045678Z  Insecure Registries:
+2025-11-27T02:11:53.1045916Z   ::1/128
+2025-11-27T02:11:53.1046083Z   127.0.0.0/8
+2025-11-27T02:11:53.1046281Z  Live Restore Enabled: false
+2025-11-27T02:11:53.1046442Z 
+2025-11-27T02:11:53.1049076Z ##[endgroup]
+2025-11-27T02:11:53.1049447Z ##[group]Proxy configuration
+2025-11-27T02:11:53.1053537Z No proxy configuration found
+2025-11-27T02:11:53.1054285Z ##[endgroup]
+2025-11-27T02:11:53.1712126Z ##[group]Buildx version
+2025-11-27T02:11:53.1734481Z [command]/usr/bin/docker buildx version
+2025-11-27T02:11:53.2259505Z github.com/docker/buildx v0.29.1 a32761aeb3debd39be1eca514af3693af0db334b
+2025-11-27T02:11:53.2294286Z ##[endgroup]
+2025-11-27T02:11:53.2294805Z ##[group]Builder info
+2025-11-27T02:11:53.3236123Z {
+2025-11-27T02:11:53.3236482Z   "nodes": [
+2025-11-27T02:11:53.3236784Z     {
+2025-11-27T02:11:53.3237099Z       "name": "builder-9606d104-e453-4902-a295-51984468f7390",
+2025-11-27T02:11:53.3237486Z       "endpoint": "unix:///var/run/docker.sock",
+2025-11-27T02:11:53.3237771Z       "status": "running",
+2025-11-27T02:11:53.3238315Z       "buildkitd-flags": "--allow-insecure-entitlement security.insecure --allow-insecure-entitlement network.host",
+2025-11-27T02:11:53.3238867Z       "buildkit": "v0.26.2",
+2025-11-27T02:11:53.3239229Z       "platforms": "linux/amd64,linux/amd64/v2,linux/amd64/v3,linux/386",
+2025-11-27T02:11:53.3239575Z       "features": {
+2025-11-27T02:11:53.3239910Z         "Automatically load images to the Docker Engine image store": true,
+2025-11-27T02:11:53.3240281Z         "Cache export": true,
+2025-11-27T02:11:53.3240524Z         "Direct push": true,
+2025-11-27T02:11:53.3240769Z         "Docker exporter": true,
+2025-11-27T02:11:53.3241040Z         "Multi-platform build": true,
+2025-11-27T02:11:53.3241282Z         "OCI exporter": true
+2025-11-27T02:11:53.3241490Z       },
+2025-11-27T02:11:53.3241662Z       "labels": {
+2025-11-27T02:11:53.3241944Z         "org.mobyproject.buildkit.worker.executor": "oci",
+2025-11-27T02:11:53.3242365Z         "org.mobyproject.buildkit.worker.hostname": "ec0ac186e7a9",
+2025-11-27T02:11:53.3242790Z         "org.mobyproject.buildkit.worker.network": "host",
+2025-11-27T02:11:53.3243227Z         "org.mobyproject.buildkit.worker.oci.process-mode": "sandbox",
+2025-11-27T02:11:53.3243689Z         "org.mobyproject.buildkit.worker.selinux.enabled": "false",
+2025-11-27T02:11:53.3244134Z         "org.mobyproject.buildkit.worker.snapshotter": "overlayfs"
+2025-11-27T02:11:53.3244444Z       },
+2025-11-27T02:11:53.3244614Z       "gcPolicy": [
+2025-11-27T02:11:53.3244794Z         {
+2025-11-27T02:11:53.3245716Z           "all": false,
+2025-11-27T02:11:53.3246092Z           "filter": [
+2025-11-27T02:11:53.3246336Z             "type==source.local",
+2025-11-27T02:11:53.3246613Z             "type==exec.cachemount",
+2025-11-27T02:11:53.3246892Z             "type==source.git.checkout"
+2025-11-27T02:11:53.3247137Z           ],
+2025-11-27T02:11:53.3247356Z           "keepDuration": "48h0m0s"
+2025-11-27T02:11:53.3247576Z         },
+2025-11-27T02:11:53.3247741Z         {
+2025-11-27T02:11:53.3247919Z           "all": false,
+2025-11-27T02:11:53.3248150Z           "keepDuration": "1440h0m0s"
+2025-11-27T02:11:53.3248380Z         },
+2025-11-27T02:11:53.3248535Z         {
+2025-11-27T02:11:53.3248704Z           "all": false
+2025-11-27T02:11:53.3248895Z         },
+2025-11-27T02:11:53.3249052Z         {
+2025-11-27T02:11:53.3249218Z           "all": true
+2025-11-27T02:11:53.3249399Z         }
+2025-11-27T02:11:53.3249729Z       ]
+2025-11-27T02:11:53.3249890Z     }
+2025-11-27T02:11:53.3250042Z   ],
+2025-11-27T02:11:53.3250307Z   "name": "builder-9606d104-e453-4902-a295-51984468f739",
+2025-11-27T02:11:53.3250630Z   "driver": "docker-container",
+2025-11-27T02:11:53.3250913Z   "lastActivity": "2025-11-27T02:11:48.000Z"
+2025-11-27T02:11:53.3251158Z }
+2025-11-27T02:11:53.3251618Z ##[endgroup]
+2025-11-27T02:11:53.4869448Z [command]/usr/bin/docker buildx build --cache-from type=gha --cache-to type=gha,mode=max --file ./Dockerfile --iidfile /home/runner/work/_temp/docker-actions-toolkit-oKq4T5/build-iidfile-e9dd33bd70.txt --attest type=provenance,mode=max,builder-id=https://github.com/JesusCabrera84/orion-web/actions/runs/19722992660 --tag orion-web:latest --metadata-file /home/runner/work/_temp/docker-actions-toolkit-oKq4T5/build-metadata-fd33d3c364.json .
+2025-11-27T02:11:53.8607977Z #0 building with "builder-9606d104-e453-4902-a295-51984468f739" instance using docker-container driver
+2025-11-27T02:11:53.8608616Z 
+2025-11-27T02:11:53.8608874Z #1 [internal] load build definition from Dockerfile
+2025-11-27T02:11:53.8609317Z #1 transferring dockerfile: 1.52kB done
+2025-11-27T02:11:53.8609627Z #1 DONE 0.0s
+2025-11-27T02:11:53.8609749Z 
+2025-11-27T02:11:53.8609996Z #2 [auth] library/node:pull token for registry-1.docker.io
+2025-11-27T02:11:53.8610343Z #2 DONE 0.0s
+2025-11-27T02:11:53.8610463Z 
+2025-11-27T02:11:53.8610742Z #3 [internal] load metadata for docker.io/library/node:20-alpine
+2025-11-27T02:11:54.0733253Z #3 DONE 0.4s
+2025-11-27T02:11:54.1768342Z 
+2025-11-27T02:11:54.1770101Z #4 [internal] load .dockerignore
+2025-11-27T02:11:54.1771260Z #4 transferring context: 2B done
+2025-11-27T02:11:54.1772014Z #4 DONE 0.0s
+2025-11-27T02:11:54.1772242Z 
+2025-11-27T02:11:54.1772489Z #5 [internal] load build context
+2025-11-27T02:11:54.1772963Z #5 DONE 0.0s
+2025-11-27T02:11:54.1773153Z 
+2025-11-27T02:11:54.1773806Z #6 [builder 1/7] FROM docker.io/library/node:20-alpine@sha256:16858294071a56ffd4cce9f17b57136cc39e41507b40e245b4f8e906f7a19463
+2025-11-27T02:11:54.1775172Z #6 resolve docker.io/library/node:20-alpine@sha256:16858294071a56ffd4cce9f17b57136cc39e41507b40e245b4f8e906f7a19463 done
+2025-11-27T02:11:54.1775953Z #6 DONE 0.0s
+2025-11-27T02:11:54.1776061Z 
+2025-11-27T02:11:54.1776280Z #7 importing cache manifest from gha:7420391185476736556
+2025-11-27T02:11:54.1776562Z #7 DONE 0.1s
+2025-11-27T02:11:54.2775843Z 
+2025-11-27T02:11:54.2777199Z #6 [builder 1/7] FROM docker.io/library/node:20-alpine@sha256:16858294071a56ffd4cce9f17b57136cc39e41507b40e245b4f8e906f7a19463
+2025-11-27T02:11:54.2778757Z #6 sha256:d4cda882e05ad84150274412fb534631d499c5216411b3d162ebac40e824f048 446B / 446B 0.1s done
+2025-11-27T02:11:54.4034662Z #6 sha256:d31fb19c9d765a3839243f009b51eb48b4d9e104cebc2ec210a649d47c538bef 1.26MB / 1.26MB 0.2s done
+2025-11-27T02:11:54.4044840Z #6 sha256:537c6f956080bc5b44a38de0951224e37050aa22b362f4e54156e36e46c2e173 7.34MB / 42.76MB 0.2s
+2025-11-27T02:11:54.4047578Z #6 sha256:2d35ebdb57d9971fea0cac1582aa78935adf8058b2cc32db163c98822e5dfa1b 3.80MB / 3.80MB 0.2s done
+2025-11-27T02:11:54.5079662Z #6 extracting sha256:2d35ebdb57d9971fea0cac1582aa78935adf8058b2cc32db163c98822e5dfa1b
+2025-11-27T02:11:54.6632010Z #6 sha256:537c6f956080bc5b44a38de0951224e37050aa22b362f4e54156e36e46c2e173 34.87MB / 42.76MB 0.5s
+2025-11-27T02:11:54.6643408Z #6 extracting sha256:2d35ebdb57d9971fea0cac1582aa78935adf8058b2cc32db163c98822e5dfa1b 0.2s done
+2025-11-27T02:11:54.7885048Z #6 sha256:537c6f956080bc5b44a38de0951224e37050aa22b362f4e54156e36e46c2e173 42.76MB / 42.76MB 0.6s done
+2025-11-27T02:11:54.9152402Z #6 extracting sha256:537c6f956080bc5b44a38de0951224e37050aa22b362f4e54156e36e46c2e173
+2025-11-27T02:11:56.9364783Z #6 extracting sha256:537c6f956080bc5b44a38de0951224e37050aa22b362f4e54156e36e46c2e173 2.1s done
+2025-11-27T02:11:56.9371153Z #6 extracting sha256:d31fb19c9d765a3839243f009b51eb48b4d9e104cebc2ec210a649d47c538bef 0.1s done
+2025-11-27T02:11:56.9372002Z #6 DONE 2.8s
+2025-11-27T02:11:56.9372202Z 
+2025-11-27T02:11:56.9372432Z #5 [internal] load build context
+2025-11-27T02:11:57.1048222Z #5 ...
+2025-11-27T02:11:57.1063346Z 
+2025-11-27T02:11:57.1068007Z #6 [builder 1/7] FROM docker.io/library/node:20-alpine@sha256:16858294071a56ffd4cce9f17b57136cc39e41507b40e245b4f8e906f7a19463
+2025-11-27T02:11:57.1069504Z #6 extracting sha256:d4cda882e05ad84150274412fb534631d499c5216411b3d162ebac40e824f048 done
+2025-11-27T02:11:57.1070329Z #6 DONE 2.8s
+2025-11-27T02:11:57.1070534Z 
+2025-11-27T02:11:57.1070752Z #5 [internal] load build context
+2025-11-27T02:11:57.9289619Z #5 ...
+2025-11-27T02:11:57.9289895Z 
+2025-11-27T02:11:57.9290131Z #8 [builder 2/7] WORKDIR /app
+2025-11-27T02:11:57.9290545Z #8 DONE 0.8s
+2025-11-27T02:11:57.9290739Z 
+2025-11-27T02:11:57.9290974Z #5 [internal] load build context
+2025-11-27T02:11:58.0289537Z #5 ...
+2025-11-27T02:11:58.0303144Z 
+2025-11-27T02:11:58.0304042Z #9 [runner 2/8] RUN apk add --no-cache dumb-init
+2025-11-27T02:11:58.0309586Z #9 0.156 fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/x86_64/APKINDEX.tar.gz
+2025-11-27T02:11:58.0313429Z #9 0.295 fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/community/x86_64/APKINDEX.tar.gz
+2025-11-27T02:11:58.0314379Z #9 0.783 (1/1) Installing dumb-init (1.2.5-r3)
+2025-11-27T02:11:58.0315021Z #9 0.802 Executing busybox-1.37.0-r19.trigger
+2025-11-27T02:11:58.0315777Z #9 0.835 OK: 10 MiB in 19 packages
+2025-11-27T02:11:58.0316208Z #9 DONE 1.0s
+2025-11-27T02:11:58.0316406Z 
+2025-11-27T02:11:58.0316595Z #10 [runner 3/8] WORKDIR /app
+2025-11-27T02:11:58.0317004Z #10 DONE 0.0s
+2025-11-27T02:11:58.0317195Z 
+2025-11-27T02:11:58.0317425Z #5 [internal] load build context
+2025-11-27T02:11:59.1427588Z #5 transferring context: 369.82MB 4.9s
+2025-11-27T02:11:59.8899960Z #5 transferring context: 432.47MB 5.6s done
+2025-11-27T02:11:59.8900498Z #5 DONE 5.7s
+2025-11-27T02:11:59.8900700Z 
+2025-11-27T02:11:59.8900974Z #11 [builder 3/7] COPY package*.json ./
+2025-11-27T02:12:00.2155682Z #11 DONE 0.3s
+2025-11-27T02:12:00.3669626Z 
+2025-11-27T02:12:00.3670219Z #12 [builder 4/7] RUN npm ci
+2025-11-27T02:12:03.6269583Z #12 3.410 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+2025-11-27T02:12:03.8499477Z #12 3.481 npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+2025-11-27T02:12:07.6611550Z #12 7.445 
+2025-11-27T02:12:07.6612415Z #12 7.445 added 508 packages, and audited 509 packages in 7s
+2025-11-27T02:12:07.8162434Z #12 7.445 
+2025-11-27T02:12:07.8162984Z #12 7.445 245 packages are looking for funding
+2025-11-27T02:12:07.8163585Z #12 7.445   run `npm fund` for details
+2025-11-27T02:12:07.8163982Z #12 7.448 
+2025-11-27T02:12:07.8164380Z #12 7.448 1 high severity vulnerability
+2025-11-27T02:12:07.8164793Z #12 7.448 
+2025-11-27T02:12:07.8165185Z #12 7.448 To address all issues, run:
+2025-11-27T02:12:07.8165865Z #12 7.448   npm audit fix
+2025-11-27T02:12:07.8166220Z #12 7.448 
+2025-11-27T02:12:07.8166628Z #12 7.448 Run `npm audit` for details.
+2025-11-27T02:12:07.8167100Z #12 7.449 npm notice
+2025-11-27T02:12:07.8168209Z #12 7.449 npm notice New major version of npm available! 10.8.2 -> 11.6.4
+2025-11-27T02:12:07.8169222Z #12 7.449 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.6.4
+2025-11-27T02:12:07.8170094Z #12 7.449 npm notice To update run: npm install -g npm@11.6.4
+2025-11-27T02:12:07.8170639Z #12 7.449 npm notice
+2025-11-27T02:12:08.2783311Z #12 DONE 8.1s
+2025-11-27T02:12:08.4295851Z 
+2025-11-27T02:12:08.4296376Z #13 [builder 5/7] COPY . .
+2025-11-27T02:12:13.5698257Z #13 DONE 5.3s
+2025-11-27T02:12:13.7209365Z 
+2025-11-27T02:12:13.7209981Z #14 [builder 6/7] RUN npm run build
+2025-11-27T02:12:13.8907830Z #14 0.320 
+2025-11-27T02:12:13.8908224Z #14 0.320 > build
+2025-11-27T02:12:13.8908612Z #14 0.320 > qwik build
+2025-11-27T02:12:13.8908956Z #14 0.320 
+2025-11-27T02:12:14.1314204Z #14 0.408 
+2025-11-27T02:12:14.1314605Z #14 0.408       ............
+2025-11-27T02:12:14.1315128Z #14 0.408     .::: :--------:.
+2025-11-27T02:12:14.1316290Z #14 0.408    .::::  .:-------:.
+2025-11-27T02:12:14.1316743Z #14 0.408   .:::::.   .:-------.
+2025-11-27T02:12:14.1317192Z #14 0.408   ::::::.     .:------.
+2025-11-27T02:12:14.1317631Z #14 0.408  ::::::.        :-----:
+2025-11-27T02:12:14.1318078Z #14 0.408  ::::::.       .:-----.
+2025-11-27T02:12:14.1318513Z #14 0.408   :::::::.     .-----.
+2025-11-27T02:12:14.1318943Z #14 0.408    ::::::::..   ---:.
+2025-11-27T02:12:14.1319384Z #14 0.408     .:::::::::. :-:.
+2025-11-27T02:12:14.1319796Z #14 0.408      ..::::::::::::
+2025-11-27T02:12:14.1320216Z #14 0.408              ...::::
+2025-11-27T02:12:14.1320564Z #14 0.408      
+2025-11-27T02:12:14.1320851Z #14 0.408 
+2025-11-27T02:12:14.1321130Z #14 0.410 
+2025-11-27T02:12:14.1321464Z #14 0.410 npm run build.types
+2025-11-27T02:12:14.1321909Z #14 0.410 npm run build.client
+2025-11-27T02:12:14.1322308Z #14 0.410 npm run lint
+2025-11-27T02:12:14.1322620Z #14 0.411 
+2025-11-27T02:12:14.1394049Z #14 0.569 
+2025-11-27T02:12:14.1395838Z #14 0.569 > build.types
+2025-11-27T02:12:14.1396410Z #14 0.569 > tsc --incremental --noEmit
+2025-11-27T02:12:14.1396845Z #14 0.569 
+2025-11-27T02:12:14.2986802Z #14 0.575 
+2025-11-27T02:12:14.2987471Z #14 0.575 > build.client
+2025-11-27T02:12:14.2987937Z #14 0.575 > vite build
+2025-11-27T02:12:14.2988296Z #14 0.575 
+2025-11-27T02:12:15.1411758Z #14 1.571 using deprecated parameters for the initialization function; pass a single object instead
+2025-11-27T02:12:15.6578302Z #14 2.086 vite v7.1.11 building for production...
+2025-11-27T02:12:15.8835184Z #14 2.162 transforming...
+2025-11-27T02:12:19.8333558Z #14 6.263 ✓ 96 modules transformed.
+2025-11-27T02:12:20.1232259Z #14 6.551 rendering chunks...
+2025-11-27T02:12:20.3429076Z #14 6.771 computing gzip size...
+2025-11-27T02:12:20.5093154Z #14 6.844 dist/assets/BxovHrV4-bundle-graph.json    2.06 kB │ gzip:   1.13 kB
+2025-11-27T02:12:20.5099437Z #14 6.845 dist/q-manifest.json                     38.09 kB │ gzip:   5.38 kB
+2025-11-27T02:12:20.5100381Z #14 6.846 dist/assets/O30PGwjH-style.css           54.24 kB │ gzip:  13.80 kB
+2025-11-27T02:12:20.5101439Z #14 6.846 dist/build/q-Di682T_q.js                  0.05 kB │ gzip:   0.07 kB
+2025-11-27T02:12:20.5102443Z #14 6.847 dist/build/q-CwqsMTj3.js                  0.15 kB │ gzip:   0.13 kB
+2025-11-27T02:12:20.5103464Z #14 6.848 dist/build/q-AvgOBi6Z.js                  0.17 kB │ gzip:   0.15 kB
+2025-11-27T02:12:20.5104437Z #14 6.848 dist/build/q-63iatg1Y.js                  0.17 kB │ gzip:   0.15 kB
+2025-11-27T02:12:20.5105522Z #14 6.849 dist/build/q-DQmX-z2r.js                  0.17 kB │ gzip:   0.15 kB
+2025-11-27T02:12:20.5106560Z #14 6.849 dist/build/q-CX95C3bh.js                  0.17 kB │ gzip:   0.15 kB
+2025-11-27T02:12:20.5107575Z #14 6.850 dist/build/q-CH1E56Vo.js                  0.17 kB │ gzip:   0.15 kB
+2025-11-27T02:12:20.5108593Z #14 6.850 dist/build/q-juoQKq-d.js                  0.17 kB │ gzip:   0.16 kB
+2025-11-27T02:12:20.5109616Z #14 6.851 dist/build/q-BkU6mpzw.js                  0.18 kB │ gzip:   0.17 kB
+2025-11-27T02:12:20.5111018Z #14 6.851 dist/build/q-DEUkFAGv.js                  0.18 kB │ gzip:   0.17 kB
+2025-11-27T02:12:20.5112007Z #14 6.851 dist/build/q-BDXbdXzA.js                  0.18 kB │ gzip:   0.17 kB
+2025-11-27T02:12:20.5112986Z #14 6.851 dist/build/q-DWfAMVVD.js                  0.26 kB │ gzip:   0.20 kB
+2025-11-27T02:12:20.5113947Z #14 6.851 dist/build/q-CDsdO_Wx.js                  0.34 kB │ gzip:   0.28 kB
+2025-11-27T02:12:20.5114925Z #14 6.851 dist/build/q-DBX70Eub.js                  0.35 kB │ gzip:   0.20 kB
+2025-11-27T02:12:20.5116107Z #14 6.851 dist/build/q-vHuYy4n3.js                  0.37 kB │ gzip:   0.23 kB
+2025-11-27T02:12:20.5117076Z #14 6.852 dist/build/q-DgSO9lBc.js                  0.44 kB │ gzip:   0.31 kB
+2025-11-27T02:12:20.5118055Z #14 6.852 dist/build/q-BLnckQub.js                  0.52 kB │ gzip:   0.34 kB
+2025-11-27T02:12:20.5119034Z #14 6.852 dist/build/q-VJ99Qxt-.js                  0.55 kB │ gzip:   0.39 kB
+2025-11-27T02:12:20.5119979Z #14 6.852 dist/build/q-Dq2pRNDE.js                  0.71 kB │ gzip:   0.37 kB
+2025-11-27T02:12:20.5121183Z #14 6.852 dist/build/q-iGUzByY_.js                  0.80 kB │ gzip:   0.53 kB
+2025-11-27T02:12:20.5122166Z #14 6.852 dist/build/q-Dvt6IjoE.js                  0.81 kB │ gzip:   0.48 kB
+2025-11-27T02:12:20.5123152Z #14 6.852 dist/build/q-BC-RWsMj.js                  0.83 kB │ gzip:   0.43 kB
+2025-11-27T02:12:20.5124130Z #14 6.852 dist/build/q-CfQsPZwr.js                  0.90 kB │ gzip:   0.53 kB
+2025-11-27T02:12:20.5125101Z #14 6.852 dist/build/q-jbKpBGOy.js                  0.96 kB │ gzip:   0.55 kB
+2025-11-27T02:12:20.5126258Z #14 6.852 dist/build/q-C8oUWptr.js                  0.96 kB │ gzip:   0.48 kB
+2025-11-27T02:12:20.5127243Z #14 6.852 dist/build/q-jtZL59r-.js                  1.31 kB │ gzip:   0.69 kB
+2025-11-27T02:12:20.5128226Z #14 6.852 dist/build/q-DMp3UILm.js                  1.41 kB │ gzip:   0.76 kB
+2025-11-27T02:12:20.5129308Z #14 6.852 dist/build/q-fKxXNHi9.js                  1.76 kB │ gzip:   0.98 kB
+2025-11-27T02:12:20.5130320Z #14 6.852 dist/build/q-D6ZP92m3.js                  1.84 kB │ gzip:   0.94 kB
+2025-11-27T02:12:20.5131307Z #14 6.853 dist/build/q-Dq8LLgfs.js                  1.96 kB │ gzip:   1.01 kB
+2025-11-27T02:12:20.5132285Z #14 6.853 dist/build/q-BihhsMc7.js                  2.24 kB │ gzip:   1.09 kB
+2025-11-27T02:12:20.5133268Z #14 6.853 dist/build/q-brla9B9v.js                  2.41 kB │ gzip:   1.11 kB
+2025-11-27T02:12:20.5134240Z #14 6.853 dist/build/q-vqmNahmF.js                  2.85 kB │ gzip:   1.31 kB
+2025-11-27T02:12:20.5135220Z #14 6.853 dist/build/q-BaEVV674.js                  2.98 kB │ gzip:   1.19 kB
+2025-11-27T02:12:20.5136339Z #14 6.853 dist/build/q-naDMFAHy.js                  3.10 kB │ gzip:   1.68 kB
+2025-11-27T02:12:20.5137299Z #14 6.853 dist/build/q-Q4kJbLTg.js                  3.45 kB │ gzip:   0.92 kB
+2025-11-27T02:12:20.5138259Z #14 6.853 dist/build/q-Ce4Xo5xK.js                  3.68 kB │ gzip:   1.11 kB
+2025-11-27T02:12:20.5139236Z #14 6.853 dist/build/q-BKZ00VYc.js                  3.73 kB │ gzip:   2.00 kB
+2025-11-27T02:12:20.5140239Z #14 6.853 dist/build/q-J8dHOCFX.js                  4.83 kB │ gzip:   1.96 kB
+2025-11-27T02:12:20.5141205Z #14 6.853 dist/build/q-BdfZG3DH.js                  5.42 kB │ gzip:   1.35 kB
+2025-11-27T02:12:20.5142158Z #14 6.853 dist/build/q-9lOLm31X.js                  6.38 kB │ gzip:   2.08 kB
+2025-11-27T02:12:20.5143110Z #14 6.853 dist/build/q-BNpHxpQy.js                  6.79 kB │ gzip:   2.78 kB
+2025-11-27T02:12:20.5144073Z #14 6.853 dist/build/q-C9OCXvMp.js                  6.93 kB │ gzip:   3.28 kB
+2025-11-27T02:12:20.5145024Z #14 6.853 dist/build/q-DGke7184.js                 49.74 kB │ gzip:  20.17 kB
+2025-11-27T02:12:20.5146133Z #14 6.853 dist/build/q-C-T2X1Oh.js                149.82 kB │ gzip:  43.49 kB
+2025-11-27T02:12:20.5147087Z #14 6.853 dist/build/q-DkwAuJT7.js                489.85 kB │ gzip: 126.04 kB
+2025-11-27T02:12:20.5147723Z #14 6.854 ✓ built in 4.72s
+2025-11-27T02:12:20.5148057Z #14 6.939 
+2025-11-27T02:12:20.6531543Z #14 6.939 ✓ Built client modules
+2025-11-27T02:12:20.6532055Z #14 7.083 
+2025-11-27T02:12:20.6532726Z #14 7.083 > lint
+2025-11-27T02:12:20.6533203Z #14 7.083 > eslint "src/**/*.ts*"
+2025-11-27T02:12:20.6533634Z #14 7.083 
+2025-11-27T02:12:24.9536350Z #14 11.38 [0m[0m
+2025-11-27T02:12:24.9536996Z #14 11.38 [0m[4m/app/src/components/hero/EarthPlane.tsx[24m[0m
+2025-11-27T02:12:24.9539095Z #14 11.38 [0m  [2m7:5[22m  [33mwarning[39m  useVisibleTask$() runs eagerly and blocks the main thread, preventing user interaction until the task is finished. Consider using useTask$(), useOn(), useOnDocument(), or useOnWindow() instead. If you have to use a useVisibleTask$(), you can disable the warning with a '// eslint-disable-next-line qwik/no-use-visible-task' comment  [2mqwik/no-use-visible-task[22m[0m
+2025-11-27T02:12:24.9540473Z #14 11.38 [0m[0m
+2025-11-27T02:12:24.9540894Z #14 11.38 [0m[4m/app/src/components/hero/galactic-logo.tsx[24m[0m
+2025-11-27T02:12:24.9541628Z #14 11.38 [0m  [2m18:17[22m  [33mwarning[39m  Local images can be optimized by importing using ESM, like this:[0m
+2025-11-27T02:12:24.9542472Z #14 11.38 [0m[0m
+2025-11-27T02:12:24.9542903Z #14 11.38 [0m  import ImgLogo from '~/media/images/logo.png?jsx';[0m
+2025-11-27T02:12:24.9543298Z #14 11.38 [0m  <ImgLogo />[0m
+2025-11-27T02:12:24.9543548Z #14 11.38 [0m[0m
+2025-11-27T02:12:24.9544195Z #14 11.38 [0mSee https://qwik.dev/docs/integrations/image-optimization/#responsive-images  [2mqwik/jsx-img[22m[0m
+2025-11-27T02:12:24.9544695Z #14 11.38 [0m[0m
+2025-11-27T02:12:24.9545050Z #14 11.38 [0m[4m/app/src/components/hero/hero.tsx[24m[0m
+2025-11-27T02:12:24.9547514Z #14 11.38 [0m   [2m8:5[22m   [33mwarning[39m  useVisibleTask$() runs eagerly and blocks the main thread, preventing user interaction until the task is finished. Consider using useTask$(), useOn(), useOnDocument(), or useOnWindow() instead. If you have to use a useVisibleTask$(), you can disable the warning with a '// eslint-disable-next-line qwik/no-use-visible-task' comment  [2mqwik/no-use-visible-task[22m[0m
+2025-11-27T02:12:24.9549207Z #14 11.38 [0m  [2m58:29[22m  [33mwarning[39m  Local images can be optimized by importing using ESM, like this:[0m
+2025-11-27T02:12:24.9549645Z #14 11.38 [0m[0m
+2025-11-27T02:12:24.9550156Z #14 11.38 [0m  import ImgLogoOrionSilver from '~/media/images/logo-orion-silver.png?jsx';[0m
+2025-11-27T02:12:24.9550664Z #14 11.38 [0m  <ImgLogoOrionSilver />[0m
+2025-11-27T02:12:24.9550942Z #14 11.38 [0m[0m
+2025-11-27T02:12:24.9551806Z #14 11.38 [0mSee https://qwik.dev/docs/integrations/image-optimization/#responsive-images                                                                                        [2mqwik/jsx-img[22m[0m
+2025-11-27T02:12:24.9552390Z #14 11.38 [0m[0m
+2025-11-27T02:12:24.9552799Z #14 11.38 [0m[4m/app/src/components/hero/starfield-layer.tsx[24m[0m
+2025-11-27T02:12:24.9554848Z #14 11.38 [0m  [2m16:5[22m  [33mwarning[39m  useVisibleTask$() runs eagerly and blocks the main thread, preventing user interaction until the task is finished. Consider using useTask$(), useOn(), useOnDocument(), or useOnWindow() instead. If you have to use a useVisibleTask$(), you can disable the warning with a '// eslint-disable-next-line qwik/no-use-visible-task' comment  [2mqwik/no-use-visible-task[22m[0m
+2025-11-27T02:12:24.9556366Z #14 11.38 [0m[0m
+2025-11-27T02:12:24.9556703Z #14 11.38 [0m[4m/app/src/routes/login/index.tsx[24m[0m
+2025-11-27T02:12:24.9557369Z #14 11.38 [0m  [2m60:30[22m  [33mwarning[39m  Local images can be optimized by importing using ESM, like this:[0m
+2025-11-27T02:12:24.9557810Z #14 11.38 [0m[0m
+2025-11-27T02:12:24.9558202Z #14 11.38 [0m  import ImgLogo from '~/media/images/logo.png?jsx';[0m
+2025-11-27T02:12:24.9558586Z #14 11.38 [0m  <ImgLogo />[0m
+2025-11-27T02:12:24.9558832Z #14 11.38 [0m[0m
+2025-11-27T02:12:24.9559468Z #14 11.38 [0mSee https://qwik.dev/docs/integrations/image-optimization/#responsive-images  [2mqwik/jsx-img[22m[0m
+2025-11-27T02:12:24.9559978Z #14 11.38 [0m[0m
+2025-11-27T02:12:24.9560306Z #14 11.38 [0m[4m/app/src/routes/mapa/index.tsx[24m[0m
+2025-11-27T02:12:24.9561143Z #14 11.38 [0m  [2m59:26[22m  [33mwarning[39m  Local images can be optimized by importing using ESM, like this:[0m
+2025-11-27T02:12:24.9561607Z #14 11.38 [0m[0m
+2025-11-27T02:12:24.9561985Z #14 11.38 [0m  import ImgLogo from '~/media/images/logo.png?jsx';[0m
+2025-11-27T02:12:24.9562364Z #14 11.38 [0m  <ImgLogo />[0m
+2025-11-27T02:12:24.9562603Z #14 11.38 [0m[0m
+2025-11-27T02:12:24.9563230Z #14 11.38 [0mSee https://qwik.dev/docs/integrations/image-optimization/#responsive-images  [2mqwik/jsx-img[22m[0m
+2025-11-27T02:12:24.9563724Z #14 11.38 [0m[0m
+2025-11-27T02:12:24.9564053Z #14 11.38 [0m[4m/app/src/routes/verify/index.tsx[24m[0m
+2025-11-27T02:12:24.9564711Z #14 11.38 [0m  [2m38:26[22m  [33mwarning[39m  Local images can be optimized by importing using ESM, like this:[0m
+2025-11-27T02:12:24.9565145Z #14 11.38 [0m[0m
+2025-11-27T02:12:24.9567981Z #14 11.38 [0m  import ImgLogo from '~/media/images/logo.png?jsx';[0m
+2025-11-27T02:12:24.9568651Z #14 11.38 [0m  <ImgLogo />[0m
+2025-11-27T02:12:24.9569091Z #14 11.38 [0m[0m
+2025-11-27T02:12:24.9570197Z #14 11.38 [0mSee https://qwik.dev/docs/integrations/image-optimization/#responsive-images  [2mqwik/jsx-img[22m[0m
+2025-11-27T02:12:24.9571104Z #14 11.38 [0m[0m
+2025-11-27T02:12:24.9571829Z #14 11.38 [0m[33m[1m✖ 8 problems (0 errors, 8 warnings)[22m[39m[0m
+2025-11-27T02:12:24.9572491Z #14 11.38 [0m[33m[1m[22m[39m[0m
+2025-11-27T02:12:25.1158946Z #14 11.46 ✓ Type checked
+2025-11-27T02:12:25.1160405Z #14 11.46 ✓ Lint checked
+2025-11-27T02:12:25.1160768Z #14 11.46 
+2025-11-27T02:12:25.1161350Z #14 11.46  Missing an integration 
+2025-11-27T02:12:25.1161966Z #14 11.46 
+2025-11-27T02:12:25.1163372Z #14 11.46 ・ Use npm run qwik add to add an integration
+2025-11-27T02:12:25.1164577Z #14 11.46 ・ Use npm run preview to preview the build
+2025-11-27T02:12:25.1165133Z #14 11.46 
+2025-11-27T02:12:25.1165803Z #14 DONE 11.5s
+2025-11-27T02:12:25.2671012Z 
+2025-11-27T02:12:25.2672124Z #15 [builder 7/7] RUN npm run build.preview
+2025-11-27T02:12:25.3056621Z #15 0.189 
+2025-11-27T02:12:25.3057305Z #15 0.189 > build.preview
+2025-11-27T02:12:25.3058970Z #15 0.189 > vite build --ssr src/entry.preview.tsx
+2025-11-27T02:12:25.3060574Z #15 0.189 
+2025-11-27T02:12:26.0886545Z #15 0.972 using deprecated parameters for the initialization function; pass a single object instead
+2025-11-27T02:12:26.4309642Z #15 1.314 vite v7.1.11 building SSR bundle for production...
+2025-11-27T02:12:26.6705969Z #15 1.403 transforming...
+2025-11-27T02:12:27.2047412Z #15 2.087 
+2025-11-27T02:12:27.2048971Z #15 2.087 /images/bg-stars.jpg referenced in /images/bg-stars.jpg didn't resolve at build time, it will remain unchanged to be resolved at runtime
+2025-11-27T02:12:27.3543883Z #15 2.087 
+2025-11-27T02:12:27.3545560Z #15 2.087 /images/noise_ultra_subtle_gray.png referenced in /images/noise_ultra_subtle_gray.png didn't resolve at build time, it will remain unchanged to be resolved at runtime
+2025-11-27T02:12:27.3546728Z #15 2.087 
+2025-11-27T02:12:27.3547934Z #15 2.087 /textures/orion-galaxy.png referenced in /textures/orion-galaxy.png didn't resolve at build time, it will remain unchanged to be resolved at runtime
+2025-11-27T02:12:27.3548558Z #15 2.087 
+2025-11-27T02:12:27.3549289Z #15 2.087 /textures/logo-arrow-mask.png referenced in /textures/logo-arrow-mask.png didn't resolve at build time, it will remain unchanged to be resolved at runtime
+2025-11-27T02:12:27.6949369Z #15 2.578 ✓ 42 modules transformed.
+2025-11-27T02:12:27.8039413Z #15 2.687 rendering chunks...
+2025-11-27T02:12:28.0029014Z #15 2.692 server/entry.preview.js  157.23 kB
+2025-11-27T02:12:28.0029862Z #15 2.692 ✓ built in 1.35s
+2025-11-27T02:12:28.0030231Z #15 DONE 2.7s
+2025-11-27T02:12:29.2403890Z 
+2025-11-27T02:12:29.2404843Z #16 [runner 4/8] COPY --from=builder /app/node_modules ./node_modules
+2025-11-27T02:12:32.0691997Z #16 DONE 2.8s
+2025-11-27T02:12:32.2207361Z 
+2025-11-27T02:12:32.2208090Z #17 [runner 5/8] COPY --from=builder /app/dist ./dist
+2025-11-27T02:12:32.2682751Z #17 DONE 0.2s
+2025-11-27T02:12:32.4479936Z 
+2025-11-27T02:12:32.4482094Z #18 [runner 6/8] COPY --from=builder /app/package.json ./package.json
+2025-11-27T02:12:32.4482725Z #18 DONE 0.0s
+2025-11-27T02:12:32.4482902Z 
+2025-11-27T02:12:32.4483342Z #19 [runner 7/8] COPY --from=builder /app/vite.config.ts ./vite.config.ts
+2025-11-27T02:12:32.4483898Z #19 DONE 0.0s
+2025-11-27T02:12:32.4484060Z 
+2025-11-27T02:12:32.4484466Z #20 [runner 8/8] COPY --from=builder /app/tsconfig.json ./tsconfig.json
+2025-11-27T02:12:32.4484989Z #20 DONE 0.0s
+2025-11-27T02:12:32.4485163Z 
+2025-11-27T02:12:32.4485604Z #21 exporting to GitHub Actions Cache
+2025-11-27T02:12:32.4486098Z #21 preparing build cache for export
+2025-11-27T02:12:55.7393277Z #21 writing layer sha256:201d3c95f994eaf396d71f17238df555eecdab52abc6bf4bfdf348c7a84d9a07
+2025-11-27T02:12:56.0871310Z #21 writing layer sha256:201d3c95f994eaf396d71f17238df555eecdab52abc6bf4bfdf348c7a84d9a07 0.3s done
+2025-11-27T02:12:56.2597231Z #21 writing layer sha256:2a38c335989084ba0451167865e5b47cce946d25c4fdc54ce751a64966e375e4
+2025-11-27T02:13:08.9777603Z #21 writing layer sha256:2a38c335989084ba0451167865e5b47cce946d25c4fdc54ce751a64966e375e4 12.9s done
+2025-11-27T02:13:09.1508557Z #21 writing layer sha256:2d35ebdb57d9971fea0cac1582aa78935adf8058b2cc32db163c98822e5dfa1b
+2025-11-27T02:13:09.5102515Z #21 writing layer sha256:2d35ebdb57d9971fea0cac1582aa78935adf8058b2cc32db163c98822e5dfa1b 0.5s done
+2025-11-27T02:13:09.6851082Z #21 writing layer sha256:355c38484d3b414e27e39d67519eec25c4e6322f6e81dc3d6b70efa76616d1d6
+2025-11-27T02:13:14.7327250Z #21 writing layer sha256:355c38484d3b414e27e39d67519eec25c4e6322f6e81dc3d6b70efa76616d1d6 5.2s done
+2025-11-27T02:13:14.9078996Z #21 writing layer sha256:39462e50d8831c4665eba66b7591d131a337926716a350b4f86d0de0a33ef15f
+2025-11-27T02:13:15.0228867Z #21 writing layer sha256:39462e50d8831c4665eba66b7591d131a337926716a350b4f86d0de0a33ef15f 0.3s done
+2025-11-27T02:13:15.2049385Z #21 writing layer sha256:490eba2dbc3e6ad29f2155de86ba48d746c0bb2a31d0f8ecca6312b1686ccfe7
+2025-11-27T02:13:15.2065119Z #21 writing layer sha256:490eba2dbc3e6ad29f2155de86ba48d746c0bb2a31d0f8ecca6312b1686ccfe7 0.2s done
+2025-11-27T02:13:15.3797202Z #21 writing layer sha256:5143c17b22bf9a24f7ee67cf846e679ff2953c432dbd1b9c7a3347b8eaa46fec
+2025-11-27T02:13:15.4344273Z #21 writing layer sha256:5143c17b22bf9a24f7ee67cf846e679ff2953c432dbd1b9c7a3347b8eaa46fec 0.2s done
+2025-11-27T02:13:15.6087386Z #21 writing layer sha256:537c6f956080bc5b44a38de0951224e37050aa22b362f4e54156e36e46c2e173
+2025-11-27T02:13:18.2280803Z #21 writing layer sha256:537c6f956080bc5b44a38de0951224e37050aa22b362f4e54156e36e46c2e173 2.8s done
+2025-11-27T02:13:18.4048132Z #21 writing layer sha256:66e051c0928f99d5b55a3d32892fe38eae73458f325335ce4c66af7c861cdf25
+2025-11-27T02:13:28.0908389Z #21 writing layer sha256:66e051c0928f99d5b55a3d32892fe38eae73458f325335ce4c66af7c861cdf25 9.8s done
+2025-11-27T02:13:28.3086577Z #21 writing layer sha256:81f706fa573a1cf020a62d522044c85f884e6ae303f5c2fc43ffdc9992622491
+2025-11-27T02:13:28.3632932Z #21 writing layer sha256:81f706fa573a1cf020a62d522044c85f884e6ae303f5c2fc43ffdc9992622491 0.2s done
+2025-11-27T02:13:28.5371546Z #21 writing layer sha256:937fa47db724abb9a648a924ea95e60f29915d27001100ea6769f6c1131d7102
+2025-11-27T02:13:32.1200746Z #21 writing layer sha256:937fa47db724abb9a648a924ea95e60f29915d27001100ea6769f6c1131d7102 3.7s done
+2025-11-27T02:13:32.2936961Z #21 writing layer sha256:9ec4be53a7f40ebcf4545eb3d437912913a54545ac40b896acc0e7293e9e5d99
+2025-11-27T02:13:32.4013633Z #21 writing layer sha256:9ec4be53a7f40ebcf4545eb3d437912913a54545ac40b896acc0e7293e9e5d99 0.3s done
+2025-11-27T02:13:32.5746644Z #21 writing layer sha256:d31fb19c9d765a3839243f009b51eb48b4d9e104cebc2ec210a649d47c538bef
+2025-11-27T02:13:32.8127320Z #21 writing layer sha256:d31fb19c9d765a3839243f009b51eb48b4d9e104cebc2ec210a649d47c538bef 0.4s done
+2025-11-27T02:13:32.9874166Z #21 writing layer sha256:d4cda882e05ad84150274412fb534631d499c5216411b3d162ebac40e824f048
+2025-11-27T02:13:33.1313508Z #21 writing layer sha256:d4cda882e05ad84150274412fb534631d499c5216411b3d162ebac40e824f048 0.3s done
+2025-11-27T02:13:33.3094226Z #21 writing layer sha256:e0e337db58b8cab7f3026a9e908b78fcaf70b694e439f3b49b5752645e96de05
+2025-11-27T02:13:36.5518519Z #21 writing layer sha256:e0e337db58b8cab7f3026a9e908b78fcaf70b694e439f3b49b5752645e96de05 3.4s done
+2025-11-27T02:13:36.7263248Z #21 writing layer sha256:e2636457cdc7dcc818fd295cc7280fd62f7a7449447f8b6322e4cd4cfeadcc8b
+2025-11-27T02:13:36.7364861Z #21 writing layer sha256:e2636457cdc7dcc818fd295cc7280fd62f7a7449447f8b6322e4cd4cfeadcc8b 0.2s done
+2025-11-27T02:13:36.9097168Z #21 writing layer sha256:e3aa2484987e4bdfea0f9439a058722a7e1766bb84be55242169bda81c1fc9ba
+2025-11-27T02:13:36.9867451Z #21 writing layer sha256:e3aa2484987e4bdfea0f9439a058722a7e1766bb84be55242169bda81c1fc9ba 0.2s done
+2025-11-27T02:13:37.2892043Z #21 preparing build cache for export 65.0s done
+2025-11-27T02:13:37.2893284Z #21 DONE 65.0s
+2025-11-27T02:13:37.3099159Z 
+2025-11-27T02:13:37.3099709Z #22 resolving provenance for metadata file
+2025-11-27T02:13:37.3111004Z #22 DONE 0.0s
+2025-11-27T02:13:37.3112695Z WARNING: No output specified with docker-container driver. Build result will only remain in the build cache. To push result image into registry use --push or to load image into docker use --load
+2025-11-27T02:13:37.3183773Z ##[group]Metadata
+2025-11-27T02:13:37.3184128Z {
+2025-11-27T02:13:37.3184479Z   "buildx.build.provenance": {
+2025-11-27T02:13:37.3184885Z     "builder": {
+2025-11-27T02:13:37.3185646Z       "id": "https://github.com/JesusCabrera84/orion-web/actions/runs/19722992660"
+2025-11-27T02:13:37.3186232Z     },
+2025-11-27T02:13:37.3186682Z     "buildType": "https://mobyproject.org/buildkit@v1",
+2025-11-27T02:13:37.3187192Z     "materials": [
+2025-11-27T02:13:37.3187488Z       {
+2025-11-27T02:13:37.3187945Z         "uri": "pkg:docker/node@20-alpine?platform=linux%2Famd64",
+2025-11-27T02:13:37.3188441Z         "digest": {
+2025-11-27T02:13:37.3189070Z           "sha256": "16858294071a56ffd4cce9f17b57136cc39e41507b40e245b4f8e906f7a19463"
+2025-11-27T02:13:37.3189679Z         }
+2025-11-27T02:13:37.3189941Z       }
+2025-11-27T02:13:37.3190203Z     ],
+2025-11-27T02:13:37.3190494Z     "invocation": {
+2025-11-27T02:13:37.3190724Z       "configSource": {
+2025-11-27T02:13:37.3190975Z         "entryPoint": "Dockerfile"
+2025-11-27T02:13:37.3191204Z       },
+2025-11-27T02:13:37.3191383Z       "parameters": {
+2025-11-27T02:13:37.3191623Z         "frontend": "dockerfile.v0",
+2025-11-27T02:13:37.3191852Z         "locals": [
+2025-11-27T02:13:37.3192025Z           {
+2025-11-27T02:13:37.3192193Z             "name": "context"
+2025-11-27T02:13:37.3192399Z           },
+2025-11-27T02:13:37.3192597Z           {
+2025-11-27T02:13:37.3192787Z             "name": "dockerfile"
+2025-11-27T02:13:37.3192993Z           }
+2025-11-27T02:13:37.3193149Z         ]
+2025-11-27T02:13:37.3193301Z       },
+2025-11-27T02:13:37.3193474Z       "environment": {
+2025-11-27T02:13:37.3193706Z         "platform": "linux/amd64",
+2025-11-27T02:13:37.3193972Z         "ProvenanceCustomEnv": null
+2025-11-27T02:13:37.3194202Z       }
+2025-11-27T02:13:37.3194350Z     }
+2025-11-27T02:13:37.3194506Z   },
+2025-11-27T02:13:37.3195068Z   "buildx.build.ref": "builder-9606d104-e453-4902-a295-51984468f739/builder-9606d104-e453-4902-a295-51984468f7390/4as2b2za1pazi2ikb4euppuwx"
+2025-11-27T02:13:37.3195834Z }
+2025-11-27T02:13:37.3196146Z ##[endgroup]
+2025-11-27T02:13:37.3305169Z Post job cleanup.
+2025-11-27T02:13:37.5461608Z ##[group]Removing temp folder /home/runner/work/_temp/docker-actions-toolkit-oKq4T5
+2025-11-27T02:13:37.5474685Z ##[endgroup]
+2025-11-27T02:13:37.5475149Z ##[group]Post cache
+2025-11-27T02:13:37.5477536Z State not set
+2025-11-27T02:13:37.5478208Z ##[endgroup]
+2025-11-27T02:13:37.5590022Z Post job cleanup.
+2025-11-27T02:13:37.8358191Z ##[group]Removing builder
+2025-11-27T02:13:37.9477636Z [command]/usr/bin/docker buildx rm builder-9606d104-e453-4902-a295-51984468f739
+2025-11-27T02:13:40.7783327Z builder-9606d104-e453-4902-a295-51984468f739 removed
+2025-11-27T02:13:40.7826253Z ##[endgroup]
+2025-11-27T02:13:40.7827926Z ##[group]Cleaning up certificates
+2025-11-27T02:13:40.7834292Z ##[endgroup]
+2025-11-27T02:13:40.7835065Z ##[group]Post cache
+2025-11-27T02:13:40.7837307Z State not set
+2025-11-27T02:13:40.7838156Z ##[endgroup]
+2025-11-27T02:13:40.7977103Z Post job cleanup.
+2025-11-27T02:13:40.9693138Z [command]/usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P -C /home/runner/work/orion-web/orion-web --files-from manifest.txt --use-compress-program zstdmt
+2025-11-27T02:13:42.2521383Z Sent 80432843 of 80432843 (100.0%), 76.6 MBs/sec
+2025-11-27T02:13:42.5823463Z Cache saved with the key: node-cache-Linux-x64-npm-1fe05167e03b4f19295a110c0b21cfa890cd0e992ff8f33749b6eb50e82849e6
+2025-11-27T02:13:42.5977784Z Post job cleanup.
+2025-11-27T02:13:42.6938482Z [command]/usr/bin/git version
+2025-11-27T02:13:42.6974936Z git version 2.51.2
+2025-11-27T02:13:42.7020656Z Temporarily overriding HOME='/home/runner/work/_temp/c0f7d583-08a3-41ae-a13d-f608a6e9b88b' before making global git config changes
+2025-11-27T02:13:42.7022344Z Adding repository directory to the temporary git global config as a safe directory
+2025-11-27T02:13:42.7033725Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/orion-web/orion-web
+2025-11-27T02:13:42.7068527Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-11-27T02:13:42.7101219Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-11-27T02:13:42.7353243Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-11-27T02:13:42.7373856Z http.https://github.com/.extraheader
+2025-11-27T02:13:42.7386551Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-11-27T02:13:42.7416818Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-11-27T02:13:42.7633864Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-11-27T02:13:42.7663798Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-11-27T02:13:42.7984081Z Cleaning up orphan processes

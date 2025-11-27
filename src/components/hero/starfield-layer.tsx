@@ -7,7 +7,7 @@ interface StarfieldLayerProps {
     sizeRange?: [number, number];
     opacity?: number;
     class?: string;
-    style?: string;
+    style?: string | Record<string, string | number>;
 }
 
 export const StarfieldLayer = component$((props: StarfieldLayerProps) => {

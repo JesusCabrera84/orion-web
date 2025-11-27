@@ -28,7 +28,7 @@ export const EarthPlane = component$(() => {
         renderer.setSize(window.innerWidth, window.innerHeight);
 
         // Correcciones REALISTAS
-        renderer.outputEncoding = THREE.sRGBEncoding;
+        renderer.outputColorSpace = THREE.SRGBColorSpace;
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
         renderer.toneMappingExposure = 0.85;   // 🔥 mucho más natural
 
@@ -36,7 +36,7 @@ export const EarthPlane = component$(() => {
         const loader = new THREE.TextureLoader();
         const texture = loader.load('/images/hero-img-canva.png');
 
-        texture.encoding = THREE.sRGBEncoding;
+        texture.colorSpace = THREE.SRGBColorSpace;
         texture.minFilter = THREE.LinearFilter;
         texture.magFilter = THREE.LinearFilter;
         texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
@@ -96,7 +96,7 @@ export const EarthPlane = component$(() => {
                 filter: `
                     drop-shadow(0px -10px 40px rgba(0,150,255,0.25))
                     drop-shadow(0px -20px 60px rgba(0,150,255,0.2))
-                `
+                ;`
             }}
         />
     );

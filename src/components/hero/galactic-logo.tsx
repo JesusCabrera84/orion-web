@@ -42,7 +42,7 @@ export const GalacticLogo = component$(() => {
                     style={{
                         backgroundImage: 'url(/textures/orion-galaxy.png)',
                         backgroundSize: 'cover',
-                        filter: 'brightness(1.5) contrast(1.2)',
+                        filter: 'brightness(1.5) contrast(1.2)'
                     }}
                 />
             </div>

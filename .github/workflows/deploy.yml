@@ -47,7 +47,7 @@ jobs:
   deploy-to-ec2-test:
     needs: build-and-test
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop'
+    if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master'
     environment: test
 
     steps:
