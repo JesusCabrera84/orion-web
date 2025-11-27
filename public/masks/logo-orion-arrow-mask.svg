@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" maskUnits="objectBoundingBox" id="logo-orion-arrow-mask">
+  <rect width="1" height="1" fill="black" />
+  <!-- Simple diagonal arrow shape placeholder -->
+  <path d="M20,20 L80,80 L70,80 L30,40 L30,70 L20,70 Z" fill="white" />
+</svg>

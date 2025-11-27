@@ -1,0 +1,164 @@
+name: Build and Deploy Orion Web to EC2
+
+on:
+  push:
+    branches: [master, develop]
+  pull_request:
+    branches: [master, develop]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linter
+        run: npm run lint
+
+      - name: Build application
+        run: npm run build
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker Image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: false
+          tags: orion-web:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          # Add build-args if needed based on .env.example or usage
+          # build-args: |
+          #   VITE_BYPASS_AUTH=true
+
+  deploy-to-ec2-test:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+    environment: test
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.EC2_SSH_KEY }}
+          name: id_rsa
+          known_hosts: unnecessary
+          if_key_exists: replace
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image for deployment
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          push: false
+          tags: orion-web:latest
+          load: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          # build-args: |
+          #   VITE_BYPASS_AUTH=true
+
+      - name: Save Docker image
+        run: docker save orion-web:latest | gzip > orion-web.tar.gz
+
+      - name: Copy Docker image to EC2
+        run: |
+          echo "Copiando imagen Docker al servidor..."
+          scp -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa orion-web.tar.gz ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST_TEST }}:/tmp/
+          echo "Copia completada."
+
+      - name: Verify file transfer
+        run: |
+          echo "Verificando que el archivo se copió correctamente..."
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST_TEST }} << 'EOF'
+              if [ -f /tmp/orion-web.tar.gz ]; then
+              echo "✅ Archivo encontrado: /tmp/orion-web.tar.gz"
+              echo "Tamaño del archivo: $(du -h /tmp/orion-web.tar.gz)"
+              echo "Espacio disponible en /tmp: $(df -h /tmp | tail -1)"
+              else
+              echo "❌ Error: No se encontró el archivo /tmp/orion-web.tar.gz"
+              exit 1
+              fi
+          EOF
+
+      - name: Deploy to EC2 Test Server
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST_TEST }} << 'EOF'
+          set -e
+
+          echo "=== Detener contenedor anterior ==="
+          # Detener y remover el contenedor anterior si existe
+          docker stop orion-web-test || true
+          docker rm orion-web-test || true
+
+          echo "=== Limpiando espacio en disco ==="
+          # Limpiar contenedores e imágenes Docker no utilizadas
+          docker container prune -f || true
+          docker image prune -f || true
+          docker volume prune -f || true
+
+          # Mostrar espacio disponible
+          echo "Espacio disponible en /tmp:"
+          df -h /tmp
+
+          echo "=== Cargar nueva imagen ==="
+          # Cargar la nueva imagen
+          cd /tmp
+          if [ -f orion-web.tar.gz ]; then
+              echo "Cargando imagen Docker..."
+              docker load < orion-web.tar.gz
+
+              echo "=== Verificar imagen cargada ==="
+              docker images | grep orion-web || echo "Advertencia: No se encontró la imagen orion-web"
+              
+              echo "=== Ejecutar nuevo contenedor ==="
+              # Ejecutar el nuevo contenedor
+              # Usamos el puerto 3340 como en el ejemplo, o deberíamos usar PORT?
+              # El usuario dijo que PORT está en github environment.
+              # Asumiremos que PORT se pasa como variable de entorno al contenedor.
+              # Y mapeamos el puerto externo (ej 3340) al puerto interno (PORT).
+              # Por ahora usaré 3340:3340 como el ejemplo, pero es posible que necesitemos ajustar esto.
+              
+              docker run -d \
+                  --name orion-web-test \
+                  --restart unless-stopped \
+                  -p ${{ vars.PORT }}:${{ vars.PORT }} \
+                  -e NODE_ENV=production \
+                  -e PORT=${{ vars.PORT }} \
+                  orion-web:latest
+              
+              echo "=== Verificar contenedor ==="
+              docker ps | grep orion-web-test
+              
+              echo "=== Limpiar archivos temporales ==="
+              rm -f orion-web.tar.gz
+              
+              # Limpiar archivos temporales antiguos
+              find /tmp -name "orion-web*.tar.gz" -mtime +1 -delete || true
+              
+              echo "=== Deployment completado exitosamente ==="
+          else
+              echo "Error: No se encontró el archivo orion-web.tar.gz"
+              exit 1
+          fi
+          EOF
