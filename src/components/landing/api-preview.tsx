@@ -9,7 +9,7 @@ export const ApiPreview = component$(() => {
                         Cómo funciona la API de Orion
                     </h2>
                     <p class="text-gray-400 max-w-2xl mx-auto text-lg font-light">
-                        Integración simple y potente para desarrolladores.
+                        Integra el endpoint de lookup para resolver coordenadas geográficas a partir de identidad de celda.
                     </p>
                 </div>
 
@@ -20,17 +20,18 @@ export const ApiPreview = component$(() => {
                             <div class="absolute inset-0 bg-space-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                             <div class="flex items-center justify-between mb-4 border-b border-white/5 pb-4 relative z-10">
                                 <span class="text-sm font-mono text-space-blue font-bold tracking-wide">Request Example</span>
-                                <span class="text-xs text-gray-500 font-mono">POST /v1/locate</span>
+                                <span class="text-xs text-gray-500 font-mono">POST /api/v1/lookup</span>
                             </div>
                             <pre class="font-mono text-sm text-gray-300 overflow-x-auto relative z-10 scrollbar-hide">
-                                <code>{`curl -X POST https://api.orion.com/v1/locate \\
-  -H "Authorization: Bearer YOUR_API_KEY" \\
+                                <code>{`curl -X POST https://api.orion.geminislabs.com/api/v1/lookup \\
+  -H "x-api-key: YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
-    "mcc": 724,
-    "mnc": 5,
-    "lac": 12345,
-    "cell_id": 67890
+    "mcc": 310,
+    "mnc": 260,
+    "lac": "F303",
+    "cid": 5678,
+    "include": ["cell"]
   }'`}</code>
                             </pre>
                         </div>
@@ -43,36 +44,88 @@ export const ApiPreview = component$(() => {
                             </div>
                             <pre class="font-mono text-sm text-gray-300 overflow-x-auto relative z-10 scrollbar-hide">
                                 <code>{`{
-  "lat": -22.89,
-  "lng": -43.12,
-  "accuracy": 800,
-  "source": "cellid"
+  "matches": [
+    {
+      "lat": 41.18549,
+      "lon": -80.361315,
+      "confidence": 1.0,
+      "cell": {
+        "mcc": 310,
+        "mnc": 260,
+        "lac": "F303",
+        "cellid": "12345"
+      }
+    }
+  ],
+  "meta": {
+    "request_id": "a1b2c3d4e5f6a7b8"
+  }
 }`}</code>
                             </pre>
                         </div>
                     </div>
 
-                    {/* Right Column: Plans & Steps */}
+                    {/* Right Column: API Guide */}
                     <div class="space-y-8">
                         <div class="glass-card p-8 rounded-2xl border border-white/5 shadow-lg">
-                            <h3 class="text-2xl font-bold mb-6 text-white">Planes Flexibles</h3>
+                            <h3 class="text-2xl font-bold mb-6 text-white">Especificación del endpoint</h3>
                             <div class="space-y-4">
-                                <div class="flex items-center justify-between p-4 rounded-lg bg-white/5 border border-white/5 hover:border-luminous-cyan/40 hover:bg-white/10 transition-all duration-300 cursor-default">
-                                    <span class="text-gray-300 font-medium">Gratis</span>
-                                    <span class="text-luminous-cyan font-mono font-bold">100 req/day</span>
+                                <div class="p-4 rounded-lg bg-white/5 border border-white/5">
+                                    <p class="text-sm uppercase tracking-wider text-gray-400 mb-1">Base URL</p>
+                                    <p class="text-luminous-cyan font-mono break-all">https://api.orion.geminislabs.com/api/v1/</p>
                                 </div>
-                                <div class="flex items-center justify-between p-4 rounded-lg bg-white/5 border border-white/5 hover:border-space-blue/40 hover:bg-white/10 transition-all duration-300 cursor-default">
-                                    <span class="text-gray-300 font-medium">Plan Dev</span>
-                                    <span class="text-space-blue font-mono font-bold">5,000 req/day</span>
+                                <div class="p-4 rounded-lg bg-white/5 border border-white/5">
+                                    <p class="text-sm uppercase tracking-wider text-gray-400 mb-2">Headers requeridos</p>
+                                    <p class="text-gray-200 font-mono text-sm">x-api-key: &lt;tu-api-key&gt;</p>
+                                    <p class="text-gray-200 font-mono text-sm">Content-Type: application/json</p>
                                 </div>
-                                <div class="flex items-center justify-between p-4 rounded-lg bg-white/5 border border-white/5 hover:border-soft-purple/40 hover:bg-white/10 transition-all duration-300 cursor-default">
-                                    <span class="text-gray-300 font-medium">Plan Pro</span>
-                                    <span class="text-soft-purple font-mono font-bold">50,000 req/day</span>
+                                <div class="p-4 rounded-lg bg-white/5 border border-white/5">
+                                    <p class="text-sm uppercase tracking-wider text-gray-400 mb-2">Regla de búsqueda</p>
+                                    <p class="text-gray-300">Debes enviar al menos uno de estos campos: <span class="font-mono text-white">mcc</span>, <span class="font-mono text-white">mnc</span>, <span class="font-mono text-white">lac</span> o <span class="font-mono text-white">cid</span>.</p>
+                                    <p class="text-gray-300 mt-2">La consulta se resuelve solo con los campos presentes en el body.</p>
                                 </div>
-                                <div class="flex items-center justify-between p-4 rounded-lg bg-white/5 border border-white/5 hover:border-white/40 hover:bg-white/10 transition-all duration-300 cursor-default">
-                                    <span class="text-gray-300 font-medium">Enterprise</span>
-                                    <span class="text-white font-mono font-bold">Ilimitado</span>
+                                <div class="p-4 rounded-lg bg-white/5 border border-white/5">
+                                    <p class="text-sm uppercase tracking-wider text-gray-400 mb-2">Parámetro include</p>
+                                    <p class="text-gray-300">Valor aceptado: <span class="font-mono text-white">&quot;cell&quot;</span>.</p>
+                                    <p class="text-gray-300 mt-2">Cuando se envía <span class="font-mono text-white">include: [&quot;cell&quot;]</span>, cada resultado incluye la estructura de celda asociada.</p>
                                 </div>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-8 rounded-2xl border border-white/5 shadow-lg">
+                            <h3 class="text-2xl font-bold mb-6 text-white">Campos del body</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-4 text-gray-300">
+                                    <span class="w-24 text-space-blue font-mono text-sm">mcc</span>
+                                    <span class="flex-1">number, opcional. Mobile Country Code.</span>
+                                </li>
+                                <li class="flex items-start gap-4 text-gray-300">
+                                    <span class="w-24 text-space-blue font-mono text-sm">mnc</span>
+                                    <span class="flex-1">number, opcional. Mobile Network Code.</span>
+                                </li>
+                                <li class="flex items-start gap-4 text-gray-300">
+                                    <span class="w-24 text-space-blue font-mono text-sm">lac</span>
+                                    <span class="flex-1">string, opcional. Location Area Code en hexadecimal (ej. <span class="font-mono text-white">&quot;F303&quot;</span>).</span>
+                                </li>
+                                <li class="flex items-start gap-4 text-gray-300">
+                                    <span class="w-24 text-space-blue font-mono text-sm">cid</span>
+                                    <span class="flex-1">number, opcional. Cell ID.</span>
+                                </li>
+                                <li class="flex items-start gap-4 text-gray-300">
+                                    <span class="w-24 text-space-blue font-mono text-sm">include</span>
+                                    <span class="flex-1">array, opcional. Acepta únicamente <span class="font-mono text-white">[&quot;cell&quot;]</span>.</span>
+                                </li>
+                            </ul>
+
+                            <div class="mt-8 p-4 rounded-lg bg-space-blue/10 border border-space-blue/20">
+                                <p class="text-sm text-gray-200">
+                                    Ejemplo de búsqueda parcial mínima:
+                                </p>
+                                <pre class="mt-2 font-mono text-sm text-space-blue overflow-x-auto scrollbar-hide">
+                                    <code>{`{
+  "lac": "F303"
+}`}</code>
+                                </pre>
                             </div>
                         </div>
 
@@ -81,20 +134,25 @@ export const ApiPreview = component$(() => {
                             <ul class="space-y-4">
                                 <li class="flex items-center gap-4 text-gray-300">
                                     <span class="w-8 h-8 rounded-full bg-space-blue/20 flex items-center justify-center text-space-blue font-bold text-sm border border-space-blue/30">1</span>
-                                    Crear cuenta y verificar email
+                                    Crear cuenta y verificar mail
                                 </li>
                                 <li class="flex items-center gap-4 text-gray-300">
                                     <span class="w-8 h-8 rounded-full bg-space-blue/20 flex items-center justify-center text-space-blue font-bold text-sm border border-space-blue/30">2</span>
-                                    Generar API Key desde el dashboard
+                                    Generar API Key desde el dashboard de Geminislabs
                                 </li>
                                 <li class="flex items-center gap-4 text-gray-300">
                                     <span class="w-8 h-8 rounded-full bg-space-blue/20 flex items-center justify-center text-space-blue font-bold text-sm border border-space-blue/30">3</span>
-                                    Seleccionar plan e integrar
+                                    Comienza a usar
                                 </li>
                             </ul>
                             <div class="mt-8">
-                                <a href="/login" class="block w-full text-center btn-primary py-3 rounded-lg font-medium cyan-glow">
-                                    Crear Cuenta Gratis
+                                <a
+                                    href="https://www.geminislabs.com/auth?mode=register"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="block w-full text-center btn-primary py-3 rounded-lg font-medium cyan-glow"
+                                >
+                                    Crear cuenta gratis
                                 </a>
                             </div>
                         </div>
