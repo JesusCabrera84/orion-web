@@ -43,7 +43,7 @@ export const Hero = component$(() => {
                     {/* Title */}
                     <div id="hero-title" class="text-center md:text-left mb-6 md:mb-0 md:mr-8 max-w-2xl">
                         <p class="audiowide-regular text-xs md:text-sm tracking-[0.28em] text-space-blue mb-3 opacity-90">
-                            API-FIRST GEOLOCATION PLATFORM
+                            GEOLOCALIZACIÓN POR CELDA · MÉXICO
                         </p>
                         <h1
                             class="audiowide-regular text-5xl md:text-7xl lg:text-8xl tracking-[0.22em] text-white drop-shadow-[0_0_25px_rgba(255,255,255,0.45)]"
@@ -52,17 +52,17 @@ export const Hero = component$(() => {
                             ORION
                         </h1>
                         <p class="audiowide-regular mt-4 text-base md:text-lg lg:text-2xl text-gray-300 tracking-wide opacity-90">
-                            La unión hace la ubicación.
+                            Cuando el GPS se apaga, la celda sigue hablando.
                         </p>
 
                         <p class="mt-5 text-sm md:text-base text-gray-300/95 max-w-xl leading-relaxed">
-                            Resuelve coordenadas desde Cell-ID con baja latencia, trazabilidad por request y una integración pensada para equipos de producto y backend.
+                            En hasta el <strong class="text-white">85% de los robos al transporte de carga en México</strong> se usa un inhibidor. El GPS deja de reportar, pero el módem sigue enganchado a una celda. Orion te dice dónde se ha visto circular vehículos en esa celda.
                         </p>
 
                         <div class="mt-6 flex flex-wrap gap-2 md:gap-3 justify-center md:justify-start">
-                            <span class="px-3 py-1.5 rounded-full border border-space-blue/35 bg-space-blue/10 text-space-blue text-xs font-mono">Uptime 99.95%</span>
-                            <span class="px-3 py-1.5 rounded-full border border-luminous-cyan/35 bg-luminous-cyan/10 text-luminous-cyan text-xs font-mono">Latencia p95 &lt; 200ms</span>
-                            <span class="px-3 py-1.5 rounded-full border border-white/20 bg-white/5 text-gray-200 text-xs font-mono">API v1 estable</span>
+                            <span class="px-3 py-1.5 rounded-full border border-space-blue/35 bg-space-blue/10 text-space-blue text-xs font-mono">697,824 celdas</span>
+                            <span class="px-3 py-1.5 rounded-full border border-luminous-cyan/35 bg-luminous-cyan/10 text-luminous-cyan text-xs font-mono">Puntos de carretera, no centroides</span>
+                            <span class="px-3 py-1.5 rounded-full border border-white/20 bg-white/5 text-gray-200 text-xs font-mono">Plan gratuito, 300 aciertos</span>
                         </div>
 
                         <div class="mt-7 flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
@@ -78,7 +78,7 @@ export const Hero = component$(() => {
                                 href="/api/docs"
                                 class="px-7 py-3 rounded-xl border border-white/20 text-gray-200 hover:text-white hover:border-luminous-cyan/60 transition-colors text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-luminous-cyan/70"
                             >
-                                Ver documentacion API
+                                Ver documentación
                             </a>
                         </div>
                     </div>

@@ -82,23 +82,23 @@ export const ApiPreview = component$(() => {
                     </p>
 
                     <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-                        <span class="px-3 py-1.5 rounded-full border border-space-blue/30 bg-space-blue/10 text-space-blue text-xs font-mono">Uptime 99.95%</span>
-                        <span class="px-3 py-1.5 rounded-full border border-luminous-cyan/30 bg-luminous-cyan/10 text-luminous-cyan text-xs font-mono">Latencia media 120ms</span>
-                        <span class="px-3 py-1.5 rounded-full border border-white/15 bg-white/5 text-gray-200 text-xs font-mono">Version API v1</span>
+                        <span class="px-3 py-1.5 rounded-full border border-space-blue/30 bg-space-blue/10 text-space-blue text-xs font-mono">API v1</span>
+                        <span class="px-3 py-1.5 rounded-full border border-luminous-cyan/30 bg-luminous-cyan/10 text-luminous-cyan text-xs font-mono">Respuesta JSON</span>
+                        <span class="px-3 py-1.5 rounded-full border border-white/15 bg-white/5 text-gray-200 text-xs font-mono">Autenticación por API key</span>
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 xl:grid-cols-[220px_minmax(0,1fr)] gap-8 items-start">
                     <aside class="hidden xl:block sticky top-24">
                         <div class="glass-card p-5 rounded-xl border border-white/10">
-                            <p class="text-xs uppercase tracking-[0.18em] text-gray-400 mb-4">Indice</p>
+                            <p class="text-xs uppercase tracking-[0.18em] text-gray-400 mb-4">Índice</p>
                             <nav class="space-y-2 text-sm">
                                 <a href="#endpoint" class="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-space-blue/70">Endpoint</a>
                                 <a href="#requests" class="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-space-blue/70">Requests</a>
                                 <a href="#responses" class="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-space-blue/70">Responses</a>
                                 <a href="#body" class="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-space-blue/70">Campos</a>
                                 <a href="#quickstart" class="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-space-blue/70">Quickstart</a>
-                                <a href="#practicas" class="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-space-blue/70">Buenas practicas</a>
+                                <a href="#practicas" class="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-white/10 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-space-blue/70">Buenas prácticas</a>
                             </nav>
                         </div>
                     </aside>
@@ -110,7 +110,7 @@ export const ApiPreview = component$(() => {
                                 <span class="px-3 py-1 rounded-md bg-white/5 border border-white/15 text-gray-100 text-xs md:text-sm font-mono">/api/v1/lookup</span>
                             </div>
                             <p class="text-gray-300 mb-6 max-w-3xl">
-                                Este endpoint resuelve coordenadas geograficas a partir de identidad de celda. Orion busca usando solo los campos presentes en el body.
+                                Este endpoint resuelve coordenadas geográficas a partir de identidad de celda. Orion busca usando solo los campos presentes en el body.
                             </p>
 
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -124,7 +124,7 @@ export const ApiPreview = component$(() => {
                                     <p class="text-gray-200 font-mono text-sm">Content-Type: application/json</p>
                                 </div>
                                 <div class="p-4 rounded-lg bg-white/5 border border-white/10 md:col-span-2">
-                                    <p class="text-sm uppercase tracking-wider text-gray-400 mb-2">Validacion de busqueda</p>
+                                    <p class="text-sm uppercase tracking-wider text-gray-400 mb-2">Validación de búsqueda</p>
                                     <p class="text-gray-300">
                                         Debes enviar al menos uno de estos campos:
                                         <span class="mx-1 px-2 py-0.5 rounded bg-white/10 text-white font-mono text-xs">mcc</span>
@@ -132,7 +132,7 @@ export const ApiPreview = component$(() => {
                                         <span class="mx-1 px-2 py-0.5 rounded bg-white/10 text-white font-mono text-xs">lac</span>
                                         <span class="mx-1 px-2 py-0.5 rounded bg-white/10 text-white font-mono text-xs">cid</span>
                                     </p>
-                                    <p class="text-gray-400 mt-2 text-sm">El parametro include acepta solamente el valor &quot;cell&quot;.</p>
+                                    <p class="text-gray-400 mt-2 text-sm">El parámetro include acepta solamente el valor &quot;cell&quot;.</p>
                                 </div>
                             </div>
                         </section>
@@ -189,13 +189,13 @@ export const ApiPreview = component$(() => {
 
                             <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div class="p-4 rounded-lg bg-white/5 border border-white/10">
-                                    <p class="text-sm text-gray-400 mb-2">Busqueda parcial</p>
+                                    <p class="text-sm text-gray-400 mb-2">Búsqueda parcial</p>
                                     <pre class="font-mono text-xs text-space-blue overflow-x-auto scrollbar-hide"><code>{`{
   "lac": "F303"
 }`}</code></pre>
                                 </div>
                                 <div class="p-4 rounded-lg bg-white/5 border border-white/10">
-                                    <p class="text-sm text-gray-400 mb-2">Busqueda completa</p>
+                                    <p class="text-sm text-gray-400 mb-2">Búsqueda completa</p>
                                     <pre class="font-mono text-xs text-space-blue overflow-x-auto scrollbar-hide"><code>{`{
   "mcc": 310,
   "mnc": 260,
@@ -265,7 +265,7 @@ export const ApiPreview = component$(() => {
                                             <th class="text-left px-4 py-3 text-gray-300 font-medium">Campo</th>
                                             <th class="text-left px-4 py-3 text-gray-300 font-medium">Tipo</th>
                                             <th class="text-left px-4 py-3 text-gray-300 font-medium">Requerido</th>
-                                            <th class="text-left px-4 py-3 text-gray-300 font-medium">Descripcion</th>
+                                            <th class="text-left px-4 py-3 text-gray-300 font-medium">Descripción</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -305,49 +305,46 @@ export const ApiPreview = component$(() => {
                         </section>
 
                         <section id="quickstart" class="glass-card p-6 md:p-8 rounded-2xl border border-white/10 shadow-lg">
-                            <h3 class="text-xl md:text-2xl font-bold mb-6 text-white">Como empezar</h3>
+                            <h3 class="text-xl md:text-2xl font-bold mb-6 text-white">Cómo empezar</h3>
                             <ul class="space-y-4">
                                 <li class="flex items-center gap-4 text-gray-300">
                                     <span class="w-8 h-8 rounded-full bg-space-blue/20 flex items-center justify-center text-space-blue font-bold text-sm border border-space-blue/30">1</span>
-                                    Crear cuenta y verificar mail
+                                    Crear cuenta y verificar el correo
                                 </li>
                                 <li class="flex items-center gap-4 text-gray-300">
                                     <span class="w-8 h-8 rounded-full bg-space-blue/20 flex items-center justify-center text-space-blue font-bold text-sm border border-space-blue/30">2</span>
-                                    Generar API Key desde el dashboard de Geminislabs
+                                    Generar API Key desde el panel de Geminis Labs
                                 </li>
                                 <li class="flex items-center gap-4 text-gray-300">
                                     <span class="w-8 h-8 rounded-full bg-space-blue/20 flex items-center justify-center text-space-blue font-bold text-sm border border-space-blue/30">3</span>
-                                    Comienza a usar
+                                    Hacer la primera consulta
                                 </li>
                             </ul>
 
-                            <div class="mt-8">
+                            <div class="mt-8 flex flex-col sm:flex-row sm:flex-wrap gap-3">
                                 <a
                                     href="https://www.geminislabs.com/auth?mode=register"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="block w-full text-center btn-primary py-3 rounded-lg font-medium cyan-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-space-blue/70"
+                                    class="inline-flex items-center justify-center btn-primary px-6 py-2.5 rounded-lg text-sm font-medium cyan-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-space-blue/70"
                                 >
                                     Crear cuenta gratis
                                 </a>
-                                <p class="text-xs text-gray-400 mt-3 text-center">Registro en Geminislabs, toma menos de 1 minuto.</p>
-                            </div>
-
-                            <div class="mt-4">
                                 <a
                                     href="/api/docs"
-                                    class="block w-full text-center py-3 rounded-lg font-medium border border-white/15 text-gray-200 hover:text-white hover:border-space-blue/50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-space-blue/70"
+                                    class="inline-flex items-center justify-center px-6 py-2.5 rounded-lg text-sm font-medium border border-white/15 text-gray-200 hover:text-white hover:border-space-blue/50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-space-blue/70"
                                 >
-                                    Ver documentacion completa
+                                    Ver documentación completa
                                 </a>
                             </div>
+                            <p class="text-xs text-gray-400 mt-3">El registro toma menos de un minuto.</p>
                         </section>
 
                         <section id="practicas" class="glass-card p-6 md:p-8 rounded-2xl border border-white/10 shadow-lg">
-                            <h3 class="text-xl md:text-2xl font-bold text-white mb-5">Buenas practicas</h3>
+                            <h3 class="text-xl md:text-2xl font-bold text-white mb-5">Buenas prácticas</h3>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                                 <div class="p-4 rounded-lg bg-white/5 border border-white/10">
-                                    <p class="text-white font-medium mb-2">Envio minimo</p>
+                                    <p class="text-white font-medium mb-2">Envío mínimo</p>
                                     <p class="text-sm text-gray-300">Para reducir latencia, envia solo los campos disponibles en tu fuente.</p>
                                 </div>
                                 <div class="p-4 rounded-lg bg-white/5 border border-white/10">
@@ -356,7 +353,7 @@ export const ApiPreview = component$(() => {
                                 </div>
                                 <div class="p-4 rounded-lg bg-white/5 border border-white/10">
                                     <p class="text-white font-medium mb-2">Resiliencia</p>
-                                    <p class="text-sm text-gray-300">Aplica timeout y reintentos con backoff para mantener la integracion estable.</p>
+                                    <p class="text-sm text-gray-300">Aplica timeout y reintentos con backoff para mantener la integración estable.</p>
                                 </div>
                             </div>
                         </section>

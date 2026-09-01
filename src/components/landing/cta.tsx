@@ -10,16 +10,16 @@ export const Cta = component$(() => {
 
                 <p class="text-space-blue uppercase tracking-[0.2em] text-xs font-semibold mb-3">Comienza hoy</p>
                 <h2 class="text-3xl md:text-5xl font-bold mb-5 text-white">
-                    Lleva la geolocalizacion de tu producto a nivel enterprise
+                    Mide tu cobertura antes de pagar
                 </h2>
                 <p class="text-base md:text-xl text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-                    Crea tu cuenta, genera tu API key y realiza tus primeras integraciones en minutos con Orion.
+                    El plan gratuito incluye 300 aciertos al mes: suficiente para correr tus propias celdas y saber a cuántas te respondemos. Si el número no te sirve, no hay venta.
                 </p>
 
                 <div class="flex flex-wrap items-center justify-center gap-3 mb-8">
-                    <span class="px-3 py-1.5 rounded-full border border-white/20 bg-white/5 text-gray-200 text-xs font-mono">Setup &lt; 5 min</span>
-                    <span class="px-3 py-1.5 rounded-full border border-space-blue/35 bg-space-blue/10 text-space-blue text-xs font-mono">No friccion para empezar</span>
-                    <span class="px-3 py-1.5 rounded-full border border-luminous-cyan/35 bg-luminous-cyan/10 text-luminous-cyan text-xs font-mono">Documentacion tecnica</span>
+                    <span class="px-3 py-1.5 rounded-full border border-white/20 bg-white/5 text-gray-200 text-xs font-mono">Sin tarjeta</span>
+                    <span class="px-3 py-1.5 rounded-full border border-space-blue/35 bg-space-blue/10 text-space-blue text-xs font-mono">300 aciertos al mes</span>
+                    <span class="px-3 py-1.5 rounded-full border border-luminous-cyan/35 bg-luminous-cyan/10 text-luminous-cyan text-xs font-mono">Documentación técnica</span>
                 </div>
 
                 <div class="flex flex-col sm:flex-row justify-center gap-3">
@@ -35,11 +35,11 @@ export const Cta = component$(() => {
                         href="/api/docs"
                         class="px-10 py-4 rounded-xl text-lg font-semibold border border-white/20 text-gray-200 hover:text-white hover:border-luminous-cyan/60 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-luminous-cyan/70"
                     >
-                        Ver documentacion API
+                        Ver documentación
                     </a>
                 </div>
 
-                <p class="text-xs text-gray-400 mt-4">Registro en Geminislabs, toma menos de 1 minuto.</p>
+                <p class="text-xs text-gray-400 mt-4">El registro se hace en Geminis Labs y toma menos de un minuto.</p>
             </div>
         </section>
     );
